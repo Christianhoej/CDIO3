@@ -1,8 +1,16 @@
 package bræt;
 
-public class Ejendomme {
+public class Ejendomme extends Felter {
 
+	private boolean tilsalg;
+	private int pris;
+	private int ejer;
+	private int leje;
 	
 	
-	test test test
+	//Konstruktør
+	public Ejendomme(boolean tilsalg, int pris, int ejer, int leje){
+		super()
+	}
+	
 }
