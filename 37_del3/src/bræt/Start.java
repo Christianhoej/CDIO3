@@ -2,7 +2,7 @@ package bræt;
 
 public class Start extends Felter {
 	
-	private int startbonus;
+	private int startbonus = 2;
 	
 	
 	public Start (String feltnavn, int feltnr, String billede, int startbonus) {
@@ -10,5 +10,9 @@ public class Start extends Felter {
 		this.startbonus = startbonus;
 	}
 	
+	public int udbetalStartbonus(startbonus) {
+				grgr
+	}
 
+	
 }
