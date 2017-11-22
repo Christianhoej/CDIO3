@@ -1,4 +1,4 @@
-package spil;
+package nogetAndet;
 
 public class Spiller {
 
