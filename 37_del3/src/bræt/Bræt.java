@@ -1,4 +1,4 @@
-package nogetAndet;
+package bræt;
 
 public class Bræt {
 
