@@ -9,8 +9,13 @@ public class Ejendomme extends Felter {
 	
 	
 	//Konstruktør
-	public Ejendomme(boolean tilsalg, int pris, int ejer, int leje){
-		super()
+	public Ejendomme(String feltnavn, int feltnr, String billede, boolean tilsalg, int pris, int ejer, int leje){
+		super(feltnavn, feltnr, billede);
+		this.tilsalg = tilsalg;
+		this.pris = pris;
+		this.ejer = ejer;
+		this.leje = leje;
 	}
+	
 	
 }
