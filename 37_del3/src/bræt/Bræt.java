@@ -1,9 +1,11 @@
 package bræt;
 
 public class Bræt {
+	
+	private Felter felt[];
+	
 
-	public Bræt() {
-		// TODO Auto-generated constructor stub
 	}
 
+	
 }
