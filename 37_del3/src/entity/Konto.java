@@ -1,4 +1,4 @@
-package nogetAndet;
+package entity;
 
 public class Konto {
 
