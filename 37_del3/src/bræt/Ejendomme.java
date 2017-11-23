@@ -17,20 +17,24 @@ public class Ejendomme extends Felter {
 		this.leje = leje;
 	}
 	
-	public void setEjer(){
+	public void setEjer(int ejer){
 		this.ejer = ejer;
 	}
 	
-	public int getEjer(int ejer) {
+	public int getEjer() {
 		return ejer;
 	}
 	
-	public int getLeje(int leje) {
+	public void setLeje(int leje) {
+		this.leje=leje;
+	}
+	
+	public int getLeje() {
 		return leje;
 	}
 	
 	public int betalLeje () {
-		
+		if ()
 	}
 	
 	

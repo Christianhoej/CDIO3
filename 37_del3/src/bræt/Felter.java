@@ -11,4 +11,5 @@ public class Felter {
 		this.feltnr = feltnr;
 		this.billede = billede;
 	}
+	
 }
