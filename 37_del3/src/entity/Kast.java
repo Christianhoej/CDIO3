@@ -3,7 +3,7 @@ package entity;
 public class Kast {
 	private int terningVærdi;
 
-	Terning terning1 = new Terning();
+	Terning terning = new Terning();
 
 	public void kastTerninger() {
 		terning.kastTerning();
