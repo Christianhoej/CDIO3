@@ -10,7 +10,7 @@ public class Chancekort {
 		this. værdi = værdi;
 		
 		
-		TEst TEst Test
+
 		
 	}
 }
