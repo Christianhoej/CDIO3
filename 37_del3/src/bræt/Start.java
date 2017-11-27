@@ -1,19 +1,19 @@
 package bræt;
 
-public class Start extends Felter {
+public class Start extends AbstractFelter {
 
-	private int startbonus = 2;
+	private final int startbonus = 2;
 
-	public Start (String feltnavn, int feltnr, String billede, int startbonus) {
-		super(feltnavn, feltnr, billede);
-		this.startbonus = startbonus; 
+	public Start (int feltnr) {
+		super(feltnr); 
 	}
 
-	public int udbetalStartbonus(startbonus) {
-		
+	@Override
+	public String toString(){
+		return "Du har passeret start, og modtager en startbonus på " + startbonus + "M";
 	}
-
-	public boolean passerStart() {
-		
+	
+	public int getStartBonus(){
+		return startbonus;
 	}
 }

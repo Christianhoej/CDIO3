@@ -1,0 +1,20 @@
+Chance1#Giv dette kort til BILEN, og tag et chancekort mere. BIL - På din næste tur skal du drøne frem til et hvilket som helst ledigt felt og købe det. Hvis der ikk er nogen ledige felter, skal du købe et fra en anden spiller.
+Chance2#Ryk frem til START Modtag M2.
+Chance3#Ryk op til 5 felter frem.
+Chance4#GRATIS FELT! Ryk frem til et orange felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
+Chance5#Ryk 1 felt frem, eller tag et chancekort.
+Chance6#Giv dette kort til SKIBET, og tag et chancekort mere. SKIB - På din næste tur skal du sejle frem til et hvilket som helst ledigt felt og købet det. Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller.
+Chance7#Du har spist for meget slik. BETAL M2 til banken.
+Chance8#GRATIS FELT! Ryk frem til et orange eller grønt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
+Chance9#GRATIS FELT! Ryk frem til et lyseblåt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
+Chance10#Du løslades uden omkostninger. Behold dette kort, indtil du får brug for det.
+Chance11#Ryk frem til Strandpromenaden
+Chance12#Giv dette kort til KATTEN, og tag et chancekort mere. KAT: På din næte tur skal du liste dig hen på et hvilken som helst ledigt felt og købe det. Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller.
+Chance13#Giv dette kort til HUNDEN, og tag et chancekort mere. HUND: På din næste tur skal du hoppe hen på et hvilket som helst ledigt felt og købe det. Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller.
+Chance14#Det er din fødselsdag! Alle giver dig M1. TILLYKKE MED FØDSELDAGEN!
+Chance15#GRATIS FELT! Ryk frem til et pink eller mørkeblåt felt. Hivs det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
+Chance16#Du har lavet alle dine lektier. MODTAG M2 fra banken.
+Chance17#GRATIS FELT! Ryk frem til et rødt felt. Hvis det er ledigt, får du det GRATIS! Eller skal du BETALE leje til ejeren.
+Chance18#GRATIS FELT! Ryk frem til SKaterparken for at lave det perfekte grind! Hvis ingen ejer den, får du den GRATIS! Ellers skal du BETALE leje til ejeren.
+Chance19#GRATIS FELT! Ryk frem til et lyseblåt eller rødt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
+Chance20#GRATIS FELT! Ryk frem til et brunt eller gult. Hvis det er ledigt, får du det GRATIS! Eller skal du BETALE keje til ejeren.
