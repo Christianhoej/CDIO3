@@ -1,5 +1,6 @@
 package entity;
 
+String navn;
 public class Spiller {
 
 	public Spiller() {
