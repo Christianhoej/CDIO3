@@ -148,4 +148,6 @@ public class Bræt {
 		
 		
 	}
+
+	
 }
