@@ -41,13 +41,13 @@ public class Bræt {
 		fields[4].setTitle("Slikbutikken");
 		fields[4].setDescription("");
 		fields[4].setSubText("");
-		fields[4].setBackGroundColor(Color.LIGHT_GRAY); 
+		fields[4].setBackGroundColor(Color.BLUE); 
 		
 		fields[5] = new GUI_Street();
 		fields[5].setTitle("Iskiosken");
 		fields[5].setDescription("");
 		fields[5].setSubText("");
-		fields[5].setBackGroundColor(Color.LIGHT_GRAY);
+		fields[5].setBackGroundColor(Color.BLUE);
 		
 		fields[6] = new GUI_Jail();
 		fields[6].setSubText("På besøg");
@@ -112,8 +112,7 @@ public class Bræt {
 		fields[18] = new GUI_Jail();
 		fields[18].setTitle("Gå i fængsel");
 		fields[18].setDescription("");
-		fields[18].setSubText("");
-		fields[18].setBackGroundColor(new Color(51, 153, 255)); //Light blue
+		fields[18].setSubText("Gå i fængsel");
 		
 		fields[19] = new GUI_Street();
 		fields[19].setTitle("Bowlinghallen");
@@ -141,9 +140,8 @@ public class Bræt {
 		fields[23].setSubText("");
 		fields[23].setBackGroundColor(new Color(51, 204, 255)); //Very light bluenew Color(0, 0, 204)); //Blue
 			
-		
 		return fields;
-		GUI gui = new GUI(fields);
+		//GUI gui = new GUI(fields);
 		
 		
 		
