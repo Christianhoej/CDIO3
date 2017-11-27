@@ -12,6 +12,7 @@ public class Vinder {
 		for(int i = 0; i<spillerArray.length; i++)
 		spillerArray[i]
 	
+				
 		
 	}
 }
