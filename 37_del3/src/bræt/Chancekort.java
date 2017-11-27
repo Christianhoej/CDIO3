@@ -9,5 +9,8 @@ public class Chancekort {
 		this.tekst = tekst;
 		this. værdi = værdi;
 		
+		
+		TEst TEst Test
+		
 	}
 }
