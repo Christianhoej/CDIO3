@@ -10,8 +10,6 @@ public class Terning {
 		this.maxVærdi = maxVærdi;
 		this.minVærdi = minVærdi;
 	}
-	public Terning(){
-	}
 	public int getVærdi() {
 		return værdi;
 	}

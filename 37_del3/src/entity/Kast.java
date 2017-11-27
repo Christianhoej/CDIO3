@@ -1,11 +1,9 @@
 package entity;
 
-import entity.Terning;
-
 public class Kast {
 	private int terningVærdi;
 
-	Terning terning = new Terning();
+	Terning terning1 = new Terning();
 
 	public void kastTerninger() {
 		terning.kastTerning();
