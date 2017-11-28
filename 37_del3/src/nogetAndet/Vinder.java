@@ -3,10 +3,11 @@ package nogetAndet;
 import entity.Spiller;
 
 public class Vinder {
-	private boolean vinder;
+	private boolean uafgjort;
 	private int vinderNr;
 	private int vinderNrTotalBeholdning;
 	private int størsteLikvideBeholdning;
+	
 	
 	public int testIfVinder(Spiller[]spillerArray){
 		for(int i = 0; i<spillerArray.length; i++) {
@@ -26,7 +27,10 @@ public class Vinder {
 				vinderNr = i;
 				vinderNrTotalBeholdning = tempAktiverTotal;
 				
+				
 			}
+			//else // Hvis der er uafgjort + hvis der er uafgjort med flere spillere der endnu ikke er testet.
+				
 			
 		}
 		}
