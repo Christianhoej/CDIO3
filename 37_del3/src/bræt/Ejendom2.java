@@ -2,7 +2,7 @@ package bræt;
 
 import entity.Spiller;
 
-public class Ejendom2 extends AbstractFelter {
+public class Ejendom2 extends AbstractKanEjes {
 
 	private boolean tilsalg = true;
 	private final int pris = 2;
@@ -20,7 +20,7 @@ public class Ejendom2 extends AbstractFelter {
 		case 11: feltNavn = "Swimmingpool"; break;
 		}
 	}
-
+	
 	public String toString(){
 		return "Du har landet på" + feltNavn;
 	}
@@ -37,6 +37,10 @@ public class Ejendom2 extends AbstractFelter {
 		this.ejer = null;
 	}
 
+	public int getPris() {
+		return pris;
+	}
+	
 	public int getLeje() {
 		return leje;
 	}
@@ -52,5 +56,4 @@ public class Ejendom2 extends AbstractFelter {
 	public void landOnField(int feltnr){
 		
 	}
-
 }

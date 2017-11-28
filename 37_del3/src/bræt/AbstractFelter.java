@@ -11,10 +11,9 @@ public abstract class  AbstractFelter {
 		this.feltnr = feltnr;
 	}
 	
-	public String toString(){
-		String result = "Du har landet på " + feltnavn + ", vent til din næste tur.";
-		return result;
-	}
+	public abstract String toString();
+	
+	//public abstract void opretFelt();
 	
 	
 	

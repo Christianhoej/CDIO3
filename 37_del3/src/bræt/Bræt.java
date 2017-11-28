@@ -16,8 +16,8 @@ import gui_fields.GUI_Street;
  *
  */
 
-public class Bræt {
-
+public class Bræt {	
+	
 	/**
 	 * Laver alle felterne til spillepladen
 	 * @return Felterne til spillepladen i et array
@@ -26,9 +26,26 @@ public class Bræt {
 		
 		GUI_Field[] fields = new GUI_Field[24];
 		
-		//Dette er så simpelt som det kan blive.
+//		for(int i=0; i<felter.length; i++){
+//			switch (i) {
+//			case 0:
+//				
+//				break;
+//			case 3:
+//			case 4:
+//				ssdfisld
+//				break;
+//			default:
+//				break;
+//			}
+//			felter[i] = new Ejendom(i).opretFeltt();
+//			
+//		}
+		
+		
 		fields[0] = new GUI_Start();
 		fields[0].setTitle("Start");
+		fields[0].setDescription("");
 		fields[0].setSubText("");
 		fields[0].setBackGroundColor(Color.RED);
 		
