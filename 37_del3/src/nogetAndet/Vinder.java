@@ -3,24 +3,28 @@ package nogetAndet;
 import entity.Spiller;
 
 public class Vinder {
-	private boolean uafgjort;
 	private int vinderNr;
 	private int vinderNrTotalBeholdning;
 	private int størsteLikvideBeholdning;
+
+	private String hvisUafgjort = "Spiller nr: ";
 	
-	
-	public int testIfVinder(Spiller[]spillerArray){
+	public int testHvemVinder(Spiller[]spillerArray){
+		int tempAktiverTotal;
+		int tempLikvid;
 		for(int i = 0; i<spillerArray.length; i++) {
-			int tempLikvid;
-		tempLikvid = spillerArray[i].getLikvideMidler();
 			
-		if(tempLikvid>størsteLikvideBeholdning) {
+		tempLikvid = spillerArray[i].getLikvideMidler();
+		tempAktiverTotal = spillerArray[i].getAnlægsaktiver() + spillerArray[i].getLikvideMidler();
+
+			
+		if(tempLikvid>størsteLikvideBeholdning) { //Hvis en likvidbeholdning er større end en anden
 				vinderNr = i;
 				størsteLikvideBeholdning = tempLikvid;
 				vinderNrTotalBeholdning = spillerArray[i].getLikvideMidler()+spillerArray[i].getAnlægsaktiver();
 		}
-		else if(tempLikvid == størsteLikvideBeholdning) {
-			int tempAktiverTotal;
+		else if(tempLikvid == størsteLikvideBeholdning) { //Hvis to likvide beholdninger er lige store
+			
 			tempAktiverTotal = spillerArray[i].getAnlægsaktiver() + spillerArray[i].getLikvideMidler();
 			if(tempAktiverTotal > vinderNrTotalBeholdning)
 			{
@@ -29,12 +33,22 @@ public class Vinder {
 				
 				
 			}
-			//else // Hvis der er uafgjort + hvis der er uafgjort med flere spillere der endnu ikke er testet.
-				
+			else if(tempAktiverTotal == vinderNrTotalBeholdning && i == 2)//i == 2 gør at else kan bruges hvis der er flere spillere tilbage og de alle tre har lige mange likvide + anlægsaktiver
+				hvisUafgjort += vinderNr + ", " + i + "har begge vundet";
+
+			else {
+				hvisUafgjort = "Alle tre resterende spillere har vundet da de har lige mange likvide midler og ejendomme";
+			}
 			
+		}
+		else {
+			//Der bør ikke ske noget med variablene, men bør der ske andet?
 		}
 		}
 				
 		return vinderNr;
+	}
+	public String getHvisUafgjort() {//Metode kan bruges til at hente String med navne på uafgjort spillere.
+		return hvisUafgjort;
 	}
 }
