@@ -1,5 +1,6 @@
 package entity;
 
+
 import nogetAndet.Tur;
 
 public class Spiller {
@@ -47,4 +48,11 @@ this.navn = navn;	}
 		ændrAnlægsaktiverVærdi(-skødepris);
 	}
 
+	public int getPoint() {
+		return Aktivbeholdning.getBeholdning();
+	}
+	
+	public int getSpillerNummer() {
+		return spillerNummer;
+	}
 }
