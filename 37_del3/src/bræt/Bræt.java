@@ -26,9 +26,9 @@ public class Bræt {
 		
 		GUI_Field[] fields = new GUI_Field[24];
 		
-		//Dette er så simpelt som det kan blive.
 		fields[0] = new GUI_Start();
 		fields[0].setTitle("Start");
+		fields[0].setDescription("");
 		fields[0].setSubText("");
 		fields[0].setBackGroundColor(Color.RED);
 		
