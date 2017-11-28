@@ -1,20 +1,29 @@
 package bræt;
 
 
-import java.awt.Color;
+import java.awt.Color; 
 
 import gui_fields.GUI_Chance;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Jail;
 import gui_fields.GUI_Refuge;
 import gui_fields.GUI_Start;
-import gui_main.GUI;
 import gui_fields.GUI_Street;
 //import desktop_fields.*;
+/**
+ * Opretter spillepladen til Matador Junior
+ * @author Gruppe 37
+ *
+ */
 
 public class Bræt {
 
+	/**
+	 * Laver alle felterne til spillepladen
+	 * @return Felterne til spillepladen i et array
+	 */
 	public GUI_Field[] lavBræt() {
+		
 		GUI_Field[] fields = new GUI_Field[24];
 		
 		//Dette er så simpelt som det kan blive.
@@ -41,13 +50,13 @@ public class Bræt {
 		fields[4].setTitle("Slikbutikken");
 		fields[4].setDescription("");
 		fields[4].setSubText("");
-		fields[4].setBackGroundColor(Color.BLUE); 
+		fields[4].setBackGroundColor(new Color(51, 204, 255)); 
 		
 		fields[5] = new GUI_Street();
 		fields[5].setTitle("Iskiosken");
 		fields[5].setDescription("");
 		fields[5].setSubText("");
-		fields[5].setBackGroundColor(Color.BLUE);
+		fields[5].setBackGroundColor(new Color(51, 204, 255));
 		
 		fields[6] = new GUI_Jail();
 		fields[6].setSubText("På besøg");
@@ -101,13 +110,13 @@ public class Bræt {
 		fields[16].setTitle("Lejetøjsbutikken");
 		fields[16].setDescription("");
 		fields[16].setSubText("");
-		fields[16].setBackGroundColor(new Color(255, 204, 51)); //Gold
+		fields[16].setBackGroundColor(new Color(255, 153,0)); //Gold
 	
 		fields[17] = new GUI_Street();
 		fields[17].setTitle("Dyrehaven");
 		fields[17].setDescription("");
 		fields[17].setSubText("");
-		fields[17].setBackGroundColor(new Color(255, 204, 51)); //Gold
+		fields[17].setBackGroundColor(new Color(255, 153,0)); //Gold
 		
 		fields[18] = new GUI_Jail();
 		fields[18].setTitle("Gå i fængsel");
@@ -132,23 +141,14 @@ public class Bræt {
 		fields[22].setTitle("Vandlandet");
 		fields[22].setDescription("");
 		fields[22].setSubText("");
-		fields[22].setBackGroundColor(new Color(51, 204, 255)); //Very light blue
+		fields[22].setBackGroundColor(Color.BLUE); //Very light blue
 		
 		fields[23] = new GUI_Street();
 		fields[23].setTitle("Stranpromaden");
 		fields[23].setDescription("");
 		fields[23].setSubText("");
-		fields[23].setBackGroundColor(new Color(51, 204, 255)); //Very light bluenew Color(0, 0, 204)); //Blue
+		fields[23].setBackGroundColor(Color.BLUE); //Very light blue
 			
 		return fields;
-		//GUI gui = new GUI(fields);
-		
-		
-		
 	}
-
-	
-public Bræt() {
-
-}
 }

@@ -16,8 +16,5 @@ public void harTabt(int beholdningsværdi) {
 			setTaber(true);
 			else
 			setTaber(false);
-			
-		
-		
 	}
 }

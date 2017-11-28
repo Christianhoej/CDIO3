@@ -1,10 +1,14 @@
 package bræt;
 
-import java.io.BufferedReader;
+import java.io.BufferedReader; 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
+/**
+ * Chance
+ * @author Gunn
+ *
+ */
 public class Chancekort {
 	private String[] kort;
 	
@@ -15,13 +19,13 @@ public class Chancekort {
 	public void LavChanceKort(String fil) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(fil));
 		ArrayList<String> linjer = new ArrayList<String>();
-		String linje;
-		while((linje = reader.readLine()) != null) {
-		    linjer.add(linje.split("#")[1]);
+		String currentLine = reader.readLine();
+		while(currentLine != null) {
+		    linjer.add(currentLine);
+		    currentLine = reader.readLine();
 		}
 		reader.close();
-
-		// Convert to a String[]
+		// Convert to a String[] 
 		kort = linjer.toArray(new String[]{});
 	}
 	
@@ -46,5 +50,4 @@ public class Chancekort {
 		}
 		kort = kort1;		
 	}
-	
 }
