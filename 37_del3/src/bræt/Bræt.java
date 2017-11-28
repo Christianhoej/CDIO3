@@ -1,25 +1,51 @@
 package bræt;
 
 
-import java.awt.Color;
+import java.awt.Color; 
 
 import gui_fields.GUI_Chance;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Jail;
 import gui_fields.GUI_Refuge;
 import gui_fields.GUI_Start;
-import gui_main.GUI;
 import gui_fields.GUI_Street;
 //import desktop_fields.*;
+/**
+ * Opretter spillepladen til Matador Junior
+ * @author Gruppe 37
+ *
+ */
 
-public class Bræt {
-
+public class Bræt {	
+	
+	/**
+	 * Laver alle felterne til spillepladen
+	 * @return Felterne til spillepladen i et array
+	 */
 	public GUI_Field[] lavBræt() {
+		
 		GUI_Field[] fields = new GUI_Field[24];
 		
-		//Dette er så simpelt som det kan blive.
+//		for(int i=0; i<felter.length; i++){
+//			switch (i) {
+//			case 0:
+//				
+//				break;
+//			case 3:
+//			case 4:
+//				ssdfisld
+//				break;
+//			default:
+//				break;
+//			}
+//			felter[i] = new Ejendom(i).opretFeltt();
+//			
+//		}
+		
+		
 		fields[0] = new GUI_Start();
 		fields[0].setTitle("Start");
+		fields[0].setDescription("");
 		fields[0].setSubText("");
 		fields[0].setBackGroundColor(Color.RED);
 		
@@ -141,14 +167,5 @@ public class Bræt {
 		fields[23].setBackGroundColor(Color.BLUE); //Very light blue
 			
 		return fields;
-		//GUI gui = new GUI(fields);
-		
-		
-		
 	}
-
-	
-public Bræt() {
-
-}
 }
