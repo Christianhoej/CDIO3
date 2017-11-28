@@ -1,19 +1,28 @@
 package bræt;
 
+import gui_fields.GUI_Chance;
+import gui_fields.GUI_Field;
+
 public class Chance extends AbstractFelter {
 
 	private Chancekort chance;
 	//private int feltnr;
 	private String chanceBeskrivelse;
 	private int arr[][];
+	private int feltnr;
+//	private GUI_Field[] felter;
 	
 	
 	//Konstruktør
 	public Chance(int feltnr){
 		super(feltnr);
 		chance.blandKort();
-		
 	}
+	
+//	@Override
+//	public void opretFelt(){
+//		felter[feltnr] = new GUI_Chance();
+//	}
 	
 	@Override
 	public String toString(){
