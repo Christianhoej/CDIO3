@@ -1,9 +1,13 @@
 package nogetAndet;
 
-public class Tur {
+import entity.Terning;
 
-	public Tur() {
-		// TODO Auto-generated constructor stub
+public class Tur {
+Terning terning = new Terning();
+	public int brugTur() {
+		terning.kastTerning();
+		
+		return terning.getVærdi();
 	}
 
 }
