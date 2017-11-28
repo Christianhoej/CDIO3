@@ -9,7 +9,6 @@ public class MainTest {
 	
 		Bræt b = new Bræt();		
 		GUI gui = new GUI(b.lavBræt());
-		
 		String antal = gui.getUserSelection("Hvor mange spillere skal i være?", "2","3","4");
 		int antalSpillere = Integer.parseInt(antal);
 		
