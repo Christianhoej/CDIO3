@@ -93,6 +93,12 @@ public class Chance extends AbstractFelter {
 	public int[][] getChanceHandling(){
 		return arr;
 	}
+
+	@Override
+	public void landOnField() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

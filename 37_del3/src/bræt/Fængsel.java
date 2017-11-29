@@ -38,6 +38,12 @@ public class Fængsel extends AbstractFelter {
 	public void betalKaution(){
 		Spiller.setLikvideMidler(kaution);
 	}
+
+	@Override
+	public void landOnField() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

@@ -40,4 +40,11 @@ public class Passiv extends AbstractFelter{
 		else
 			return feltNavn + ", du behøver ikke gøre noget, bare snup dig en pause";
 	}
+
+
+	@Override
+	public void landOnField() {
+		// TODO Auto-generated method stub
+		
+	}
 }

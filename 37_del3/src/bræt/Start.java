@@ -33,4 +33,10 @@ public class Start extends AbstractFelter {
 	public int getStartBonus(){
 		return startbonus;
 	}
+
+	@Override
+	public void landOnField() {
+		// TODO Auto-generated method stub
+		
+	}
 }
