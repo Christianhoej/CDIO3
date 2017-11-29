@@ -95,4 +95,11 @@ public class Ejendom extends AbstractFelter {
 		
 	}
 
+
+	@Override
+	public void landOnField() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

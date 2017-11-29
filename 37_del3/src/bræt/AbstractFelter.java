@@ -15,6 +15,7 @@ public abstract class  AbstractFelter {
 	
 	//public abstract void opretFelt();
 	
+	public abstract void landOnField();
 	
 	
 	

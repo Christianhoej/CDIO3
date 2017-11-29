@@ -5,12 +5,12 @@ import nogetAndet.Tur;
 
 public class Spiller {
 	private String navn;
-	
+
 	Aktivbeholdning aktivbeholdning = new Aktivbeholdning(0);
 
 	public Spiller(String navn) {
-this.navn = navn;	}
-	
+		this.navn = navn;	}
+
 	public String getNavn() {
 		return navn;
 	}
@@ -21,12 +21,12 @@ this.navn = navn;	}
 	}
 	public void ændrLikvideMidler(int likvideMidler) {
 		aktivbeholdning.addLikvideMidler(likvideMidler);
-		
+
 	}
 	public void ændrAnlægsaktiverVærdi(int anlægsAktivetsVærdi) {
 
 		aktivbeholdning.addAnlægsAktiver(anlægsAktivetsVærdi);
-		
+
 	}
 	public int getLikvideMidler() {
 		int totalLikvideMidler = aktivbeholdning.getLikvideMidler();
@@ -40,7 +40,7 @@ this.navn = navn;	}
 		aktivbeholdning.købSkøde(feltNr);
 		ændrLikvideMidler(-skødepris);
 		ændrAnlægsaktiverVærdi(skødepris);
-		
+
 	}
 	public void sælgSkøde(int feltNr, int skødepris) {
 		aktivbeholdning.sælgSkøde(feltNr);
@@ -51,7 +51,7 @@ this.navn = navn;	}
 	public int getPoint() {
 		return Aktivbeholdning.getBeholdning();
 	}
-	
+
 	public int getSpillerNummer() {
 		return spillerNummer;
 	}
