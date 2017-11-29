@@ -1,20 +1,21 @@
 package nogetAndet;
 
 public class Taber {
-private boolean taber;
-private int taberGrænse = 0;
+	private boolean taber;
+	private int taberGrænse = 0;
 
-private void setTaber(boolean taber) {
-	this.taber = taber;
-}
-public boolean isTaber() {
+	public void setTaber(boolean taber) {
+		this.taber = taber;
+	}
 	
-	return taber;
-}
-public void harTabt(int beholdningsværdi) {
+	public boolean isTaber() {
+		return taber;
+	}
+	
+	public void harTabt(int beholdningsværdi) {
 		if(taberGrænse>beholdningsværdi)
 			setTaber(true);
-			else
+		else
 			setTaber(false);
 	}
 }

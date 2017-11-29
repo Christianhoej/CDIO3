@@ -2,13 +2,16 @@ package bræt;
 
 import java.awt.Color;
 
+import entity.Spiller;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Start;
+import gui_main.GUI;
 
 public class Start extends AbstractFelter {
 
 	private final int startbonus = 2;
 	private int feltnr;
+	private GUI gui;
 //	private GUI_Field[] felter;
 	
 	public Start (int feltnr) {
@@ -27,7 +30,12 @@ public class Start extends AbstractFelter {
 	
 	@Override
 	public String toString(){
-		return "Du har passeret start, og modtager en startbonus på " + startbonus + "M";
+		if(feltnr == 0){
+			return "Du har landed på start, og modtager en startbonus på " + startbonus + "M";
+		}
+		else{
+			return "Du har passeret start, og modtager en startbonus på " + startbonus + "M";
+		}
 	}
 	
 	public int getStartBonus(){
@@ -35,8 +43,8 @@ public class Start extends AbstractFelter {
 	}
 
 	@Override
-	public void landOnField() {
-		// TODO Auto-generated method stub
-		
+	public void landOnField(Spiller spiller) {
+		gui.showMessage(toString());
+		spiller.ændrLikvideMidler(startbonus);
 	}
 }
