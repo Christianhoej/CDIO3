@@ -8,11 +8,11 @@ public class Chance extends AbstractFelter {
 	private Chancekort chance = new Chancekort();
 	private String chanceBeskrivelse;
 	private int arr[][];
-
+	//private GUI gui;
 
 	//Konstruktør
-	public Chance(int feltnr){
-		super(feltnr);
+	public Chance(int feltnr, GUI gui){
+		super(feltnr, gui);
 //		chance.blandKort();
 	}
 
@@ -91,9 +91,8 @@ public class Chance extends AbstractFelter {
 
 	@Override
 	public void landOnField(Spiller spiller) {
-		
-		GUI gui = new GUI();
 		String felt;
+		gui.showMessage(toString() + " og trækker et chancekort");
 		gui.setChanceCard(toString());
 		setChancekort(); 
 		boolean nytKort = false;

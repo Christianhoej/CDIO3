@@ -1,19 +1,15 @@
 package bræt;
 
-import java.awt.Color;
-
 import entity.Spiller;
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Jail;
-import gui_fields.GUI_Refuge;
 import gui_main.GUI;
 
 public class Passiv extends AbstractFelter{
 	private String feltNavn;
+	private GUI gui;
 	//private GUI_Field[] felter;
 
-	public Passiv (int feltnr) {
-		super(feltnr);
+	public Passiv (int feltnr, GUI gui) {
+		super(feltnr, gui);
 		switch(feltnr){
 		case 6: feltNavn = "på besøg"; break;
 		case 12: feltNavn = "gratis parkering"; break;
@@ -31,13 +27,14 @@ public class Passiv extends AbstractFelter{
 
 	@Override
 	public void landOnField(Spiller spiller) {
-		GUI gui = new GUI();
 		gui.showMessage(toString());
+		System.out.println(toString());
+	    gui.showMessage(toString());
 	}
 	
 	
 	
-	
+
 
 //	public void opretFelt(){
 //		if(feltnr == 6){

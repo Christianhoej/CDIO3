@@ -5,6 +5,7 @@ import java.awt.Color;
 import entity.Spiller;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Street;
+import gui_main.GUI;
 
 public class Ejendom extends AbstractFelter {
 
@@ -18,8 +19,8 @@ public class Ejendom extends AbstractFelter {
 	
 
 	// Konstruktør
-	public Ejendom(int feltnr) {
-		super(feltnr);
+	public Ejendom(int feltnr, GUI gui) {
+		super(feltnr, gui);
 		switch(feltnr){
 		case 1: feltNavn = "Burgerbaren"; pris = 1; //farve = new Color(153,102,0); break;
 				break;
@@ -68,7 +69,7 @@ public class Ejendom extends AbstractFelter {
 
 	@Override
 	public String toString(){
-		return "Du har landet på" + feltNavn;
+		return "Du har landet på " + feltNavn;
 	}
 	
 	public void setEjer(Spiller spiller) {
@@ -99,19 +100,31 @@ public class Ejendom extends AbstractFelter {
 	public void landOnField(Spiller spiller){
 		// Hvis ejendommen er til salg og spiller får den gratis ift. chancekort
 		if(spiller.getGratis() && isTilsalg()){
+			gui.showMessage(toString() + " og får grunden gratis!");
 			spiller.tilførSkøde(feltnr, 0);
 			setTilsalg(false);
 			setEjer(spiller);
 			spiller.setGratis(false);
 		}
+		
+		else if (spiller.getGratis() && !isTilsalg()) {
+			gui.showMessage(toString() + " og køber det fra " + getEjer());
+			spiller.tilførSkøde(feltnr, -pris);
+			setEjer(spiller);
+			spiller.setGratis(false);
+			getEjer().tilførSkøde(feltnr, pris);
+		}
+		
 		// Hvis ejendommen er til salg og skal købes
 		if(isTilsalg()){
+			gui.showMessage(toString() + " og købt grunden for " + pris);
 			spiller.tilførSkøde(feltnr, pris);
 			setTilsalg(false);
 			setEjer(spiller);
 		}
 		// Hvis ejendommen ejes, og spiller skal betale husleje.
 		else if(!isTilsalg()&& getEjer().getNavn() != spiller.getNavn()){
+			gui.showMessage(toString() + " og skal betale " + pris + " til " + getEjer());
 			getEjer().ændrLikvideMidler(pris);
 			spiller.ændrLikvideMidler(-pris);
 		}
