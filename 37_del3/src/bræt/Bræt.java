@@ -9,6 +9,7 @@ import gui_fields.GUI_Jail;
 import gui_fields.GUI_Refuge;
 import gui_fields.GUI_Start;
 import gui_fields.GUI_Street;
+import gui_main.GUI;
 //import desktop_fields.*;
 /**
  * Opretter spillepladen til Matador Junior
@@ -25,6 +26,7 @@ public class Bræt {
 	 * Laver alle felterne til spillepladen
 	 * @return Felterne til spillepladen i et array
 	 */
+	
 	public GUI_Field[] lavBræt() {
 				
 		fields[0] = new GUI_Start();
@@ -153,31 +155,31 @@ public class Bræt {
 		return fields;
 	}
 	
-	public AbstractFelter[] samlFelter(){
-		felter[0] = new Start(0); 
-		felter[1] = new Ejendom(1); 
-		felter[2] = new Ejendom(2);
-		felter[3] = new Chance(3);
-		felter[4] = new Ejendom(4);
-		felter[5] = new Ejendom(5);
-		felter[6] = new Passiv(6); 
-		felter[7] = new Ejendom(7);
-		felter[8] = new Ejendom(8);
+	public AbstractFelter[] samlFelter(GUI gui){
+		felter[0] = new Start(0, gui); 
+		felter[1] = new Ejendom(1, gui); 
+		felter[2] = new Ejendom(2, gui);
+		felter[3] = new Chance(3, gui);
+		felter[4] = new Ejendom(4, gui);
+		felter[5] = new Ejendom(5, gui);
+		felter[6] = new Passiv(6, gui); 
+		felter[7] = new Ejendom(7, gui);
+		felter[8] = new Ejendom(8, gui);
 		felter[9] = felter[3];
-		felter[10] = new Ejendom(10); 
-		felter[11] = new Ejendom(11); 
-		felter[12] = new Passiv(12); 
-		felter[13] = new Ejendom(13);
-		felter[14] = new Ejendom(14);
+		felter[10] = new Ejendom(10, gui); 
+		felter[11] = new Ejendom(11, gui); 
+		felter[12] = new Passiv(12, gui); 
+		felter[13] = new Ejendom(13, gui);
+		felter[14] = new Ejendom(14, gui);
 		felter[15] = felter[3];
-		felter[16] = new Ejendom(16);
-		felter[17] = new Ejendom(17);
-		felter[18] = new Fængsel(18);
-		felter[19] = new Ejendom(19);
-		felter[20] = new Ejendom(20);
+		felter[16] = new Ejendom(16, gui);
+		felter[17] = new Ejendom(17, gui);
+		felter[18] = new Fængsel(18, gui);
+		felter[19] = new Ejendom(19, gui);
+		felter[20] = new Ejendom(20, gui);
 		felter[21] = felter[3]; 
-		felter[22] = new Ejendom(22);
-		felter[23] = new Ejendom(23);
+		felter[22] = new Ejendom(22, gui);
+		felter[23] = new Ejendom(23, gui);
 		return felter;
 	}
 	

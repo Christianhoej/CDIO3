@@ -5,6 +5,7 @@ import java.awt.Color;
 import entity.Spiller;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Street;
+import gui_main.GUI;
 
 public class Ejendom extends AbstractFelter {
 
@@ -18,8 +19,8 @@ public class Ejendom extends AbstractFelter {
 	
 
 	// Konstruktør
-	public Ejendom(int feltnr) {
-		super(feltnr);
+	public Ejendom(int feltnr, GUI gui) {
+		super(feltnr, gui);
 		switch(feltnr){
 		case 1: feltNavn = "Burgerbaren"; pris = 1; //farve = new Color(153,102,0); break;
 				break;
@@ -99,6 +100,7 @@ public class Ejendom extends AbstractFelter {
 	public void landOnField(Spiller spiller){
 		// Hvis ejendommen er til salg og spiller får den gratis ift. chancekort
 		if(spiller.getGratis() && isTilsalg()){
+			gui.showMessage(toString());
 			spiller.tilførSkøde(feltnr, 0);
 			setTilsalg(false);
 			setEjer(spiller);
@@ -106,6 +108,7 @@ public class Ejendom extends AbstractFelter {
 		}
 		// Hvis ejendommen er til salg og skal købes
 		if(isTilsalg()){
+			gui.showMessage(toString());
 			spiller.tilførSkøde(feltnr, pris);
 			setTilsalg(false);
 			setEjer(spiller);

@@ -1,21 +1,16 @@
 package bræt;
 
-import entity.Spiller;
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Jail;
+import entity.Spiller; 
 import gui_main.GUI;
 
 public class Fængsel extends AbstractFelter {
 
-	private final int kaution = -1;
-	private int feltnr;
-	private GUI_Field[] felter;
-	private GUI gui;
 	private Spiller spiller;
+	private GUI gui;
 
 	//Konstruktør kan laves
-	public Fængsel(int feltnr){
-		super(feltnr);
+	public Fængsel(int feltnr, GUI gui){
+		super(feltnr, gui);
 	}
 
 //	@Override

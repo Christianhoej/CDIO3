@@ -14,8 +14,8 @@ public class Start extends AbstractFelter {
 	private GUI gui;
 //	private GUI_Field[] felter;
 	
-	public Start (int feltnr) {
-		super(feltnr); 
+	public Start (int feltnr, GUI gui) {
+		super(feltnr, gui); 
 	}
 
 //	@Override

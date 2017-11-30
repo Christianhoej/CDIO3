@@ -1,4 +1,4 @@
-package test;
+package bræt;
 
 import java.awt.Color;
 
@@ -11,9 +11,9 @@ import gui_main.GUI;
 import nogetAndet.Taber;
 import nogetAndet.Vinder;
 
-public class Spil {
+public class SpilTest {
 
-	public Spil() {
+	public SpilTest() {
 
 	}
 	public static void main(String[]args) {
@@ -33,11 +33,11 @@ public class Spil {
 		Color [] farve = {Color.green, Color.blue, Color.red, Color.black};
 		Spiller[] spiller = new Spiller[antalSpillere];
 		Taber taber = new Taber();
-		
+
 		for (int i=0; i<s.length; i++) {
 			navn [i] = gui.getUserString("Indtast spiller " + (i+1) + "s navn");
 			car[i]= new GUI_Car(farve[i], farve[i], GUI_Car.Type.CAR, GUI_Car.Pattern.HORIZONTAL_GRADIANT);
-			
+
 			switch(antalSpillere) {
 			case 2:
 				s[i] = new GUI_Player(navn[i], 20, car[i]);
@@ -55,7 +55,7 @@ public class Spil {
 			gui.getFields()[0].setCar(s[i], true);
 		}
 
-		
+
 		taber.setTaber(false);
 		while(!taber.isTaber()) {
 			for(int i = 0; i < s.length; i++) {
@@ -72,34 +72,35 @@ public class Spil {
 					spiller[i].setChancekort(false);// Hvad laver vi her?
 					taber.harTabt(spiller[i].getLikvideMidler());
 				}
-				else{
-					//gui.showMessage("Tryk OK for at slå med terningen");
-					
-					//int terningeVærdi = spiller[i].kastTerning();
-					//gui.setDie(terningeVærdi);
-					gui.setDie(terningeVærdi);
-					gui.showMessage(spiller[i].getNavn() + " slog " + terningeVærdi);
-					gui.getFields()[spiller[i].getPlacering()].setCar(s[i], false);
-					spiller[i].opdaterPlacering(terningeVærdi);// Opdaterer placering på spilleplade
-									
-					gui.getFields()[spiller[i].getPlacering()].setCar(s[i], true);
-					
-					
-					int felt = spiller[i].getPlacering();
-					
-					b.samlFelter()[felt].landOnField(spiller[i]);
-//					if(felt != spiller[i].getPlacering()){
-//						b.samlFelter()[spiller[i].getPlacering()].landOnField(spiller[i]);
-//					}
-					taber.harTabt(spiller[i].getLikvideMidler());
-					
-					
-					
-					//Land on field -> something happens
-					//Spillerens beholdning opdateres
-					//Testes om den givne spiller har tabt
 
-				}
+				gui.showMessage("Tryk OK for at slå med terningen");
+
+				//int terningeVærdi = spiller[i].kastTerning();
+				//gui.setDie(terningeVærdi);
+				int terningeVærdi = 2;
+				gui.setDie(terningeVærdi);
+				gui.showMessage(spiller[i].getNavn() + " slog " + terningeVærdi);
+				gui.getFields()[spiller[i].getPlacering()].setCar(s[i], false);
+				spiller[i].opdaterPlacering(terningeVærdi);// Opdaterer placering på spilleplade
+
+				gui.getFields()[spiller[i].getPlacering()].setCar(s[i], true);
+
+
+				int felt = spiller[i].getPlacering();
+
+				b.samlFelter(gui)[felt].landOnField(spiller[i]);
+				//					if(felt != spiller[i].getPlacering()){
+				//						b.samlFelter()[spiller[i].getPlacering()].landOnField(spiller[i]);
+				//					}
+				taber.harTabt(spiller[i].getLikvideMidler());
+
+
+
+				//Land on field -> something happens
+				//Spillerens beholdning opdateres
+				//Testes om den givne spiller har tabt
+
+
 
 			}
 		}
@@ -107,7 +108,7 @@ public class Spil {
 		vinder.testHvemVinder(spiller);
 		//Jeg skal lige tjekke 
 	}
-	
-	
+
+
 
 }
