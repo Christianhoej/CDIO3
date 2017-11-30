@@ -80,13 +80,16 @@ public class Spiller {
 	
 	public void opdaterPlacering(int placering){
 		this.placering += placering;
+			if((placering)>23){
+				this.placering = placering%24;
+			}
 	}
 	public void setPlacering(int placering){
 		this.placering = placering;
 	}
 	
 	public int getPlacering(){
-		return placering%23;
+		return placering%24;
 	}
 	
 	public void setGratis(boolean gratis){

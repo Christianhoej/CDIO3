@@ -11,7 +11,7 @@ public class Start extends AbstractFelter {
 
 	private final int startbonus = 2;
 	private int feltnr;
-	private GUI gui;
+//	private GUI gui;
 //	private GUI_Field[] felter;
 	
 	public Start (int feltnr, GUI gui) {
@@ -45,7 +45,5 @@ public class Start extends AbstractFelter {
 	@Override
 	public void landOnField(Spiller spiller) {
 		gui.showMessage(toString());
-		spiller.ændrLikvideMidler(startbonus);
-		spiller.setPlacering(feltnr);
 	}
 }
