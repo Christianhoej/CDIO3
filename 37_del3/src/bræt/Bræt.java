@@ -16,33 +16,17 @@ import gui_fields.GUI_Street;
  *
  */
 
+
+
 public class Bræt {	
-	
+	private GUI_Field[] fields = new GUI_Field[24];
+	private AbstractFelter[] felter = new AbstractFelter[24];
 	/**
 	 * Laver alle felterne til spillepladen
 	 * @return Felterne til spillepladen i et array
 	 */
 	public GUI_Field[] lavBræt() {
-		
-		GUI_Field[] fields = new GUI_Field[24];
-		
-//		for(int i=0; i<felter.length; i++){
-//			switch (i) {
-//			case 0:
-//				
-//				break;
-//			case 3:
-//			case 4:
-//				ssdfisld
-//				break;
-//			default:
-//				break;
-//			}
-//			felter[i] = new Ejendom(i).opretFeltt();
-//			
-//		}
-		
-		
+				
 		fields[0] = new GUI_Start();
 		fields[0].setTitle("Start");
 		fields[0].setDescription("");
@@ -168,4 +152,33 @@ public class Bræt {
 			
 		return fields;
 	}
+	
+	public AbstractFelter[] samlFelter(){
+		felter[0] = new Start(0); 
+		felter[1] = new Ejendom(1); 
+		felter[2] = new Ejendom(2);
+		felter[3] = new Chance(3);
+		felter[4] = new Ejendom(4);
+		felter[5] = new Ejendom(5);
+		felter[6] = new Passiv(6); 
+		felter[7] = new Ejendom(7);
+		felter[8] = new Ejendom(8);
+		felter[9] = felter[3];
+		felter[10] = new Ejendom(10); 
+		felter[11] = new Ejendom(11); 
+		felter[12] = new Passiv(12); 
+		felter[13] = new Ejendom(13);
+		felter[14] = new Ejendom(14);
+		felter[15] = felter[3];
+		felter[16] = new Ejendom(16);
+		felter[17] = new Ejendom(17);
+		felter[18] = new Fængsel(18);
+		felter[19] = new Ejendom(19);
+		felter[20] = new Ejendom(20);
+		felter[21] = felter[3]; 
+		felter[22] = new Ejendom(22);
+		felter[23] = new Ejendom(23);
+		return felter;
+	}
+	
 }

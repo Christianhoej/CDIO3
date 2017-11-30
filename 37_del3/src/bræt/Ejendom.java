@@ -10,12 +10,12 @@ public class Ejendom extends AbstractFelter {
 
 	private boolean tilsalg = true;
 	private int pris;
-	private int leje;
 	private Spiller spiller;
 	private String feltNavn;
 //	private Color farve;
 //	private GUI_Field[] felter;
 	private int feltnr;
+	
 
 	// Konstruktør
 	public Ejendom(int feltnr) {
@@ -97,15 +97,21 @@ public class Ejendom extends AbstractFelter {
 	
 	@Override
 	public void landOnField(Spiller spiller){
+		// Hvis ejendommen er til salg og spiller får den gratis ift. chancekort
+		if(spiller.getGratis() && isTilsalg()){
+			spiller.tilførSkøde(feltnr, 0);
+			setTilsalg(false);
+			setEjer(spiller);
+			spiller.setGratis(false);
+		}
 		// Hvis ejendommen er til salg og skal købes
-		if(isTilsalg() == true){
-
+		if(isTilsalg()){
 			spiller.tilførSkøde(feltnr, pris);
 			setTilsalg(false);
 			setEjer(spiller);
 		}
 		// Hvis ejendommen ejes, og spiller skal betale husleje.
-		else if(isTilsalg() == false && getEjer().getNavn() != spiller.getNavn()){
+		else if(!isTilsalg()&& getEjer().getNavn() != spiller.getNavn()){
 			getEjer().ændrLikvideMidler(pris);
 			spiller.ændrLikvideMidler(-pris);
 		}

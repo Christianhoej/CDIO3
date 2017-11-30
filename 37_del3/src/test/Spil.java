@@ -1,7 +1,10 @@
 package test;
 
+import java.awt.Color;
+
 import bræt.Bræt;
 import entity.Spiller;
+import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 import nogetAndet.Taber;
@@ -24,51 +27,67 @@ public class Spil {
 
 		//Oprettelse af spillere på brættet
 		GUI_Player[] s = new GUI_Player[antalSpillere];
+		GUI_Car[] car = new GUI_Car[antalSpillere];
 		String [] navn = new String[antalSpillere];
-		Spiller[]spillerArray = new Spiller[antalSpillere];
+		Color [] farve = {Color.green, Color.blue, Color.red, Color.black};
+		Spiller[] spiller = new Spiller[antalSpillere];
 		Taber taber = new Taber();
 		
 		for (int i=0; i<s.length; i++) {
 			navn [i] = gui.getUserString("Indtast spiller " + (i+1) + "s navn");
-			s[i] = new GUI_Player(navn[i], 20);
-			gui.addPlayer(s[i]);
-			Spiller spiller = new Spiller(s[i].getName());
-			spillerArray[i] = spiller; //Gemmer en tilsvarende "Spiller" i spillerArrayet
-
-
+			car[i]= new GUI_Car(farve[i], farve[i], GUI_Car.Type.CAR, GUI_Car.Pattern.HORIZONTAL_GRADIANT);
+			
 			switch(antalSpillere) {
 			case 2:
-				spillerArray[i].ændrLikvideMidler(20);//Kan ikke huske hvor mange penge de skal have alt efter hvor mange spillere de er.
+				s[i] = new GUI_Player(navn[i], 20, car[i]);
 				break;
 			case 3:
-				spillerArray[i].ændrLikvideMidler(18);
+				s[i] = new GUI_Player(navn[i], 18, car[i]);
 
 				break;
 			case 4:
-				spillerArray[i].ændrLikvideMidler(16);
+				s[i] = new GUI_Player(navn[i], 16, car[i]);
 				break;
 			}
+			gui.addPlayer(s[i]);
+			spiller[i] = new Spiller(s[i].getName());
 		}
 
+		
+		
 		taber.setTaber(false);
 		while(taber.isTaber() == false) {
-			for(int i = 0; i < spillerArray.length; i++) {
+			for(int i = 0; i < s.length; i++) {
 
 				//Hvis spiller er i fængsel
-				if(spillerArray[i].isFængsel()){
-					if(spillerArray[i].getFrikort()){
-						spillerArray[i].setFrikort(false);
-						spillerArray[i].setFængsel(false);
+				if(spiller[i].isFængsel()){
+					if(spiller[i].getFrikort()){
+						spiller[i].setFrikort(false);
 					}
 					else{
-						spillerArray[i].ændrLikvideMidler(-1);
-						spillerArray[i].setFængsel(false);
+						spiller[i].ændrLikvideMidler(-1);
 					}
-					taber.harTabt(spillerArray[i].getLikvideMidler());
+					spiller[i].setFængsel(false);
+					spiller[i].setChancekort(false);
+					taber.harTabt(spiller[i].getLikvideMidler());
 				}
 				else{
-					int terningeVærdi = spillerArray[i].kastTerning();
-					System.out.println(spillerArray[i].getNavn() + "Slog " + terningeVærdi);
+					gui.showMessage("Tryk OK for at slå med terningen");
+					
+					int terningeVærdi = spiller[i].kastTerning();
+					gui.setDie(terningeVærdi);
+					gui.showMessage(spiller[i].getNavn() + " slog " + terningeVærdi);
+					spiller[i].opdaterPlacering(terningeVærdi);
+					int felt = spiller[i].getPlacering();
+					
+					b.samlFelter()[felt].landOnField(spiller[i]);
+//					if(felt != spiller[i].getPlacering()){
+//						b.samlFelter()[spiller[i].getPlacering()].landOnField(spiller[i]);
+//					}
+					taber.harTabt(spiller[i].getLikvideMidler());
+					
+					
+					
 					//Land on field -> something happens
 					//Spillerens beholdning opdateres
 					//Testes om den givne spiller har tabt
@@ -78,8 +97,10 @@ public class Spil {
 			}
 		}
 		Vinder vinder = new Vinder();
-		vinder.testHvemVinder(spillerArray);
+		vinder.testHvemVinder(spiller);
 		//Jeg skal lige tjekke 
 	}
+	
+	
 
 }

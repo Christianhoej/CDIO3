@@ -46,5 +46,6 @@ public class Start extends AbstractFelter {
 	public void landOnField(Spiller spiller) {
 		gui.showMessage(toString());
 		spiller.ændrLikvideMidler(startbonus);
+		spiller.setPlacering(feltnr);
 	}
 }
