@@ -94,7 +94,10 @@ public class Chance extends AbstractFelter {
 		
 		
 		String felt;
+
 		gui.showMessage(toString());
+
+
 		setChancekort(); 
 		boolean nytKort = false;
 		while(!nytKort){

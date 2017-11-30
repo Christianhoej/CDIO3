@@ -31,8 +31,7 @@ public class Passiv extends AbstractFelter{
 	
 	
 	
-	
-	
+
 
 //	public void opretFelt(){
 //		if(feltnr == 6){
