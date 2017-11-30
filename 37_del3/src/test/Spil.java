@@ -19,7 +19,7 @@ public class Spil {
 	public static void main(String[]args) {
 		//Her bør den del der skriver en fil laves.
 
-
+ 
 		Bræt b = new Bræt();		
 		GUI gui = new GUI(b.lavBræt());
 
