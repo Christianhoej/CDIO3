@@ -19,7 +19,7 @@ public class skrivfil {
 		// kortene er skrevet ind fra venstre til højre -> nedad.
 		bw.write("Chance1#Giv dette kort til BILEN, og tag et chancekort mere. BIL - På din næste tur skal du drøne frem til et hvilket som helst ledigt felt og købe det. Hvis der ikk er nogen ledige felter, skal du købe et fra en anden spiller.");
 		bw.newLine();
-		bw.write("Chance2#Ryk frem til START Modtag M2.");
+		bw.write("Chance2#Ryk frem til START, og modtag M2.");
 		bw.newLine();
 		bw.write("Chance3#Ryk op til 5 felter frem.");
 		bw.newLine();

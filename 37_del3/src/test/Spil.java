@@ -22,7 +22,7 @@ public class Spil {
 
 		Bræt b = new Bræt();		
 		GUI gui = new GUI(b.lavBræt());
-
+		b.samlFelter(gui);
 		String antal = gui.getUserSelection("Hvor mange spillere skal i være?", "2","3","4");
 		int antalSpillere = Integer.parseInt(antal);
 
@@ -51,8 +51,9 @@ public class Spil {
 				break;
 			}
 			gui.addPlayer(s[i]);
-			spiller[i] = new Spiller(s[i].getName());
 			gui.getFields()[0].setCar(s[i], true);
+			spiller[i] = new Spiller(s[i].getName());
+			spiller[i].ændrLikvideMidler(s[i].getBalance());
 		}
 
 		
@@ -73,10 +74,9 @@ public class Spil {
 					taber.harTabt(spiller[i].getLikvideMidler());
 				}
 				else{
-					//gui.showMessage("Tryk OK for at slå med terningen");
+					gui.showMessage("Tryk OK for at slå med terningen");
 					
-					//int terningeVærdi = spiller[i].kastTerning();
-					//gui.setDie(terningeVærdi);
+					int terningeVærdi = spiller[i].kastTerning();
 					gui.setDie(terningeVærdi);
 					gui.showMessage(spiller[i].getNavn() + " slog " + terningeVærdi);
 					gui.getFields()[spiller[i].getPlacering()].setCar(s[i], false);
@@ -87,7 +87,7 @@ public class Spil {
 					
 					int felt = spiller[i].getPlacering();
 					
-					b.samlFelter()[felt].landOnField(spiller[i]);
+					b.getSamlFelter()[felt].landOnField(spiller[i]);
 //					if(felt != spiller[i].getPlacering()){
 //						b.samlFelter()[spiller[i].getPlacering()].landOnField(spiller[i]);
 //					}

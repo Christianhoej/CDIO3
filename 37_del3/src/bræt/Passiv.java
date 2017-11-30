@@ -5,7 +5,6 @@ import gui_main.GUI;
 
 public class Passiv extends AbstractFelter{
 	private String feltNavn;
-	private GUI gui;
 	//private GUI_Field[] felter;
 
 	public Passiv (int feltnr, GUI gui) {
@@ -27,7 +26,6 @@ public class Passiv extends AbstractFelter{
 
 	@Override
 	public void landOnField(Spiller spiller) {
-		System.out.println(toString());
 	    gui.showMessage(toString());
 	}
 	
