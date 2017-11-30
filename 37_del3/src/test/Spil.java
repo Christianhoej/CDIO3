@@ -68,7 +68,7 @@ public class Spil {
 						spiller[i].ændrLikvideMidler(-1);
 					}
 					spiller[i].setFængsel(false);
-					spiller[i].setChancekort(false);
+					spiller[i].setChancekort(false);// Hvad laver vi her?
 					taber.harTabt(spiller[i].getLikvideMidler());
 				}
 				else{
@@ -77,7 +77,7 @@ public class Spil {
 					int terningeVærdi = spiller[i].kastTerning();
 					gui.setDie(terningeVærdi);
 					gui.showMessage(spiller[i].getNavn() + " slog " + terningeVærdi);
-					spiller[i].opdaterPlacering(terningeVærdi);
+					spiller[i].opdaterPlacering(terningeVærdi);// Opdaterer placering på spilleplade
 					int felt = spiller[i].getPlacering();
 					
 					b.samlFelter()[felt].landOnField(spiller[i]);

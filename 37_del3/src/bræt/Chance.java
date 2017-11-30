@@ -13,7 +13,7 @@ public class Chance extends AbstractFelter {
 	//Konstruktør
 	public Chance(int feltnr){
 		super(feltnr);
-		chance.blandKort();
+//		chance.blandKort();
 	}
 
 	//	@Override
