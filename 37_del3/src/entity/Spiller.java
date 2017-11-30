@@ -8,7 +8,7 @@ public class Spiller {
 
 	Aktivbeholdning aktivbeholdning = new Aktivbeholdning(0);
 
-	public Spiller(String navn) {
+	public Spiller(String navn) { 
 		this.navn = navn;	}
 
 	public String getNavn() {

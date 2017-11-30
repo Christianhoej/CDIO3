@@ -1,15 +1,15 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import entity.Aktivbeholdning;
+import entity.Spiller;
 import nogetAndet.Taber;
 import nogetAndet.Vinder;
-import entity.Spiller;
 
 public class TestCase {
 	
@@ -21,7 +21,7 @@ public class TestCase {
 	public void setUp() throws Exception {
 		beholdningTest = new Aktivbeholdning(100);
 		taberTest = new Taber();
-		//vinderTest = new 
+		vinderTest = new Vinder();
 	}
 
 	@After
@@ -36,11 +36,13 @@ public class TestCase {
 	 */
 	@Test
 	public void testAddLikvidemidler() {
-		beholdningTest.addLikvideMidler(10);
+		beholdningTest.addLikvideMidler(-101);
 		int actual = beholdningTest.getLikvideMidler();
-		int expected = 110;
+		int expected = -1;
 		assertEquals(actual, expected);
 	}
+	
+	
 	
 	/**Test af hatTabt metoden.
 	 * harTabt(beholdningsværdi), 
@@ -55,13 +57,18 @@ public class TestCase {
 		assertEquals(actual, expected);
 	}
 
-	
 //	@Test
-//	public int testVinder; {
-//		vinderTest.testHvemVinder (Spiller.class);
-//		int actual = vinderTest.
-//		int expected = 110;
-//		assertEquals(actual, expected);
+	public int testVinder; {
+		//Spiller test[];
+		Spiller spiller1 = new Spiller("Ahad") ;
+		Spiller spiller2 = new Spiller("Janus");
+		spiller1.ændrLikvideMidler(20);
+		spiller2.ændrLikvideMidler(21);
+		vinderTest.testHvemVinder(new Spiller[] {spiller1, spiller2});
+		Spiller[] actual = vinderTest.testHvemVinder();
+		String expected = "Janus";
+		assertEquals(actual, expected);
+	}
 	
 	
 	
