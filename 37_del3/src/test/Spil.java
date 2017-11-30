@@ -79,15 +79,24 @@ public class Spil {
 					int terningeVærdi = spiller[i].kastTerning();
 					gui.setDie(terningeVærdi);
 					gui.showMessage(spiller[i].getNavn() + " slog " + terningeVærdi);
+					int forrigePlacering = spiller[i].getPlacering();
 					gui.getFields()[spiller[i].getPlacering()].setCar(s[i], false);
 					spiller[i].opdaterPlacering(terningeVærdi);// Opdaterer placering på spilleplade
-									
 					gui.getFields()[spiller[i].getPlacering()].setCar(s[i], true);
 					
 					
 					int felt = spiller[i].getPlacering();
 					
 					b.getSamlFelter()[felt].landOnField(spiller[i]);
+					for(int j =0; j<s.length;j++){
+						s[j].setBalance(spiller[j].getLikvideMidler());
+					}
+					if(spiller[i].getPlacering() < forrigePlacering){
+						spiller[i].ændrLikvideMidler(2);
+						s[i].setBalance(spiller[i].getLikvideMidler());
+					}
+					
+					
 //					if(felt != spiller[i].getPlacering()){
 //						b.samlFelter()[spiller[i].getPlacering()].landOnField(spiller[i]);
 //					}

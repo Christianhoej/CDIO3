@@ -123,6 +123,7 @@ public class Ejendom extends AbstractFelter {
 			gui.showMessage(toString() + " og skal betale " + pris + " til " + getEjer());
 			getEjer().ændrLikvideMidler(pris);
 			spiller.ændrLikvideMidler(-pris);
+			
 		}
 	}
 }
