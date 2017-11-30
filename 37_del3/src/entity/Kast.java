@@ -5,7 +5,7 @@ public class Kast {
 
 	Terning terning = new Terning();
 
-	public void kastTerninger() {
+	public void kastTerning() {
 		terning.kastTerning();
 		terningVærdi = terning.getVærdi();
 	}

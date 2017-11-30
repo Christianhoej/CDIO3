@@ -1,22 +1,28 @@
 package entity;
 
-
-import nogetAndet.Tur;
-
 public class Spiller {
 	private String navn;
-
 	Aktivbeholdning aktivbeholdning = new Aktivbeholdning(0);
 
+	private int placering=0;
+	private int givKortVidere;
+	private boolean fængsel;
+	private boolean frikort;
+	private boolean chancekort;
+	private boolean gratis;
+	
 	public Spiller(String navn) { 
+
 		this.navn = navn;	}
 
 	public String getNavn() {
 		return navn;
 	}
-	public int brugTur() {//Tur Klassen er måske overflødig
-		Tur tur = new Tur();
-		int terningeVærdi = tur.brugTur();	
+	public int kastTerning() {//Tur Klassen er måske overflødig 
+		// Har valgt at bruge kast istedet for Tur
+		Kast kast = new Kast();
+		kast.kastTerning();	
+		int terningeVærdi = kast.getTerningVærdi();
 		return terningeVærdi;
 	}
 	public void ændrLikvideMidler(int likvideMidler) {
@@ -24,23 +30,19 @@ public class Spiller {
 
 	}
 	public void ændrAnlægsaktiverVærdi(int anlægsAktivetsVærdi) {
-
 		aktivbeholdning.addAnlægsAktiver(anlægsAktivetsVærdi);
 
 	}
 	public int getLikvideMidler() {
-		int totalLikvideMidler = aktivbeholdning.getLikvideMidler();
-		return totalLikvideMidler;
+		return aktivbeholdning.getLikvideMidler();
 	}
 	public int getAnlægsaktiver() {
-		int totalAnlægsaktiver = aktivbeholdning.getAnlægsAktiver();
-		return totalAnlægsaktiver;
+		return aktivbeholdning.getAnlægsAktiver();
 	}
 	public void tilførSkøde(int feltNr, int skødepris) {
 		aktivbeholdning.købSkøde(feltNr);
 		ændrLikvideMidler(-skødepris);
 		ændrAnlægsaktiverVærdi(skødepris);
-
 	}
 	public void sælgSkøde(int feltNr, int skødepris) {
 		aktivbeholdning.sælgSkøde(feltNr);
@@ -48,11 +50,61 @@ public class Spiller {
 		ændrAnlægsaktiverVærdi(-skødepris);
 	}
 
-	public int getPoint() {
-		return Aktivbeholdning.getBeholdning();
+//	public int getSpillerNummer() {
+//		return spillerNummer;
+//	}
+	
+	public void setFængsel(boolean fængsel){
+		this.fængsel = fængsel;
 	}
-
-	public int getSpillerNummer() {
-		return spillerNummer;
+	
+	public boolean isFængsel(){
+		return fængsel;
 	}
+	
+	public void setFrikort(boolean frikort){
+		this.frikort = frikort;
+	}
+	
+	public boolean getFrikort(){
+		return frikort;
+	}
+	
+	public void setChancekort(boolean chancekort){
+		this.chancekort = chancekort;
+	}
+	
+	public boolean getChancekort(){
+		return chancekort;
+	}
+	
+	public void opdaterPlacering(int placering){
+		this.placering += placering;
+	}
+	public void setPlacering(int placering){
+		this.placering = placering;
+	}
+	
+	public int getPlacering(){
+		return placering;
+	}
+	
+	public void setGratis(boolean gratis){
+		this.gratis = gratis;
+	}
+	
+	public boolean getGratis(){
+		return gratis;
+	}
+	
+	public void setGivKortVidere(int givKortVidere){
+		this.givKortVidere = givKortVidere;
+	}
+	
+	public int getGivKortVidere(){
+		return givKortVidere;
+	}
+	
+	
+	
 }

@@ -1,9 +1,9 @@
 package bræt;
 
+import entity.Spiller;
+
 public abstract class  AbstractFelter {
 
-
-	private String feltnavn;
 	private int feltnr;
 
 
@@ -15,7 +15,7 @@ public abstract class  AbstractFelter {
 	
 	//public abstract void opretFelt();
 	
-	public abstract void landOnField();
+	public abstract void landOnField(Spiller spiller);
 	
 	
 	

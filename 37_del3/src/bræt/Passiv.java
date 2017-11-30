@@ -2,13 +2,14 @@ package bræt;
 
 import java.awt.Color;
 
+import entity.Spiller;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Jail;
 import gui_fields.GUI_Refuge;
+import gui_main.GUI;
 
 public class Passiv extends AbstractFelter{
 	private String feltNavn;
-	private int feltnr;
 	//private GUI_Field[] felter;
 
 	public Passiv (int feltnr) {
@@ -19,6 +20,24 @@ public class Passiv extends AbstractFelter{
 		}
 	}
 
+	@Override
+	public String toString(){
+		if(feltNavn.equals("på besøg"))
+			return "Du er bare " + feltNavn;
+		else
+			return feltNavn + ", du behøver ikke gøre noget, bare snup dig en pause";
+	}
+
+
+	@Override
+	public void landOnField(Spiller spiller) {
+		GUI gui = new GUI();
+		gui.showMessage(toString());
+	}
+	
+	
+	
+	
 
 //	public void opretFelt(){
 //		if(feltnr == 6){
@@ -32,19 +51,4 @@ public class Passiv extends AbstractFelter{
 //			felter[feltnr].setBackGroundColor(Color.white); //Very light red;
 //		}	
 //	}
-
-	@Override
-	public String toString(){
-		if(feltNavn.equals("på besøg"))
-			return "Du er bare " + feltNavn;
-		else
-			return feltNavn + ", du behøver ikke gøre noget, bare snup dig en pause";
-	}
-
-
-	@Override
-	public void landOnField() {
-		// TODO Auto-generated method stub
-		
-	}
 }
