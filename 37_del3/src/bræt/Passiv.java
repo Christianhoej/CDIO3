@@ -9,7 +9,6 @@ import gui_main.GUI;
 
 public class Passiv extends AbstractFelter{
 	private String feltNavn;
-	private GUI gui;
 	//private GUI_Field[] felter;
 
 	/**
@@ -42,10 +41,6 @@ public class Passiv extends AbstractFelter{
 		System.out.println(toString());
 		gui.showMessage(toString());
 	}
-
-
-
-
 
 	//	public void opretFelt(){
 	//		if(feltnr == 6){

@@ -3,11 +3,7 @@
  */
 package bræt;
 
-import java.awt.Color;
-
 import entity.Spiller;
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Street;
 import gui_main.GUI;
 
 public class Ejendom extends AbstractFelter {

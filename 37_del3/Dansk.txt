@@ -1,5 +1,5 @@
 Chance1#Giv dette kort til BILEN, og tag et chancekort mere. BIL - På din næste tur skal du drøne frem til et hvilket som helst ledigt felt og købe det. Hvis der ikk er nogen ledige felter, skal du købe et fra en anden spiller.
-Chance2#Ryk frem til START Modtag M2.
+Chance2#Ryk frem til START, og modtag M2.
 Chance3#Ryk op til 5 felter frem.
 Chance4#GRATIS FELT! Ryk frem til et orange felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
 Chance5#Ryk 1 felt frem, eller tag et chancekort.

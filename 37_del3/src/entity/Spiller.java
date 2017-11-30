@@ -3,6 +3,7 @@ package entity;
 public class Spiller {
 	private String navn;
 	Aktivbeholdning aktivbeholdning = new Aktivbeholdning(0);
+
 	private int placering=0;
 	private int givKortVidere;
 	private boolean fængsel;
@@ -10,7 +11,8 @@ public class Spiller {
 	private boolean chancekort;
 	private boolean gratis;
 	
-	public Spiller(String navn) {
+	public Spiller(String navn) { 
+
 		this.navn = navn;	}
 
 	public String getNavn() {
@@ -84,7 +86,7 @@ public class Spiller {
 	}
 	
 	public int getPlacering(){
-		return placering;
+		return placering%23;
 	}
 	
 	public void setGratis(boolean gratis){

@@ -54,6 +54,8 @@ public class SpilTest {
 			gui.addPlayer(s[i]);
 			spiller[i] = new Spiller(s[i].getName());
 			gui.getFields()[0].setCar(s[i], true);
+			spiller[i].ændrLikvideMidler(s[i].getBalance());
+			
 		}
 
 

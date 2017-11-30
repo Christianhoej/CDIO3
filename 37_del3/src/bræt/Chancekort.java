@@ -3,15 +3,15 @@
  */
 package bræt;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
+import java.io.BufferedReader; 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class Chancekort {
 	private String[] kort;
-
+	private String[] kort1;
+	
 	public Chancekort () {
 
 		try {
@@ -20,15 +20,20 @@ public class Chancekort {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
+		
+		
 	}
+
 /**LavChanceKort laver chancekort ud fra filen Dansk.txt hvor samtlige chancekort er opskrevet.
  * Metoden læser filen med Bufferreader og ........
  * @param fil
  * @throws IOException
  */
-	public void LavChanceKort(String fil) throws IOException {
+
+
+
+	public void LavChanceKort(String fil) throws IOException { //Metode opretter 24 chancekort som Strings og gemmer i arrayet "kort"
+
 		BufferedReader br;
 		br = new BufferedReader(new FileReader(fil));
 		ArrayList<String> linjer = new ArrayList<String>();
@@ -40,6 +45,8 @@ public class Chancekort {
 		br.close();
 		// Convert to a String[] 
 		kort = linjer.toArray(new String[]{});
+		
+		blandKort();
 	}
 /**Metoden trækker via et for-loop det øverste kort i bunken
  * 
@@ -53,12 +60,14 @@ public class Chancekort {
 		kort[kort.length-1] = kort1;
 		return kort1;
 	}
+
 /**Metoden blander bunken af chancekort så de ikke ligger i den rækkefølge de er skrevet i.
  * Giver kortet en tilfældig placering via Math.random
  */
 	public void blandKort(){
 		String[] kort1 = kort;
 		int i = 0;
+		kort1 = new String[kort.length];
 		while(i < kort1.length) {
 			int værdi =(int)(Math.random()*kort1.length);
 			if(kort1[værdi]== null){
