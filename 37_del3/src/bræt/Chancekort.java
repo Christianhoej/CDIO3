@@ -12,7 +12,10 @@ import java.util.ArrayList;
  */
 public class Chancekort {
 	private String[] kort;
+	private String[] kort1;
 
+	private int KortNr = 0;
+	
 	public Chancekort () {
 
 		try {
@@ -21,11 +24,11 @@ public class Chancekort {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
+		
+		
 	}
 
-	public void LavChanceKort(String fil) throws IOException {
+	public void LavChanceKort(String fil) throws IOException { //Metode opretter 24 chancekort som Strings og gemmer i arrayet "kort"
 		BufferedReader br;
 		br = new BufferedReader(new FileReader(fil));
 		ArrayList<String> linjer = new ArrayList<String>();
@@ -37,6 +40,8 @@ public class Chancekort {
 		br.close();
 		// Convert to a String[] 
 		kort = linjer.toArray(new String[]{});
+		
+		blandKort();
 	}
 
 	public String traekKort(){
@@ -48,9 +53,9 @@ public class Chancekort {
 		return kort1;
 	}
 
-	public void blandKort(){
-		String[] kort1 = kort;
+	private void blandKort(){
 		int i = 0;
+		kort1 = new String[kort.length];
 		while(i < kort1.length) {
 			int værdi =(int)(Math.random()*kort1.length);
 			if(kort1[værdi]== null){
