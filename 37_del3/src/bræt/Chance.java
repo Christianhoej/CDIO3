@@ -92,6 +92,7 @@ public class Chance extends AbstractFelter {
 	@Override
 	public void landOnField(Spiller spiller) {
 		String felt;
+		gui.showMessage(toString() + " og trækker et chancekort");
 		gui.setChanceCard(toString());
 		setChancekort(); 
 		boolean nytKort = false;
