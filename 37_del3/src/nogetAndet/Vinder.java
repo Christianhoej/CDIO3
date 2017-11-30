@@ -1,3 +1,6 @@
+/** Klassen vinder bliver aktiveret når en spiller har tabt.
+ * Klassen har metoder som finder spillets vinder.
+ */
 package nogetAndet;
 
 import entity.Spiller;
@@ -8,6 +11,19 @@ public class Vinder {
 	private int størsteLikvideBeholdning = -1;
 
 	private String hvisUafgjort = "Spiller nr: ";
+
+	/**
+	 * Metoden tester spillernes likvideBeholdning. Spilleren med den største beholdning vinder.
+	 * @param spillerArray Array af spillere, fra 2-4
+	 * @return Returnerer spiller nummeret fra arrayet, på den spiller der vinder.
+	 */
+	public int testHvemVinder(Spiller[]spillerArray){
+		int tempAktiverTotal;
+		int tempLikvid; 
+		for(int i = 0; i<spillerArray.length; i++) {
+			
+		tempLikvid = spillerArray[i].getLikvideMidler();
+		tempAktiverTotal = spillerArray[i].getAnlægsaktiver() + spillerArray[i].getLikvideMidler();
 
 	public int testHvemVinder(Spiller[]spillerArray){
 		int[] likvid = new int[spillerArray.length];
@@ -98,7 +114,11 @@ public class Vinder {
 		System.out.println(hvisUafgjort);
 		return vinderNr;
 	}
-	public String getHvisUafgjort() {//Metode kan bruges til at hente String med navne på uafgjort spillere.
+	/**
+	 * Metode kan bruges til at hente String med navne på uafgjort spillere.
+	 * @return hvisUafgjort
+	 */
+	public String getHvisUafgjort() {
 		return hvisUafgjort;
 	}
 }
