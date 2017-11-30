@@ -11,7 +11,7 @@ public class Vinder {
 	
 	public int testHvemVinder(Spiller[]spillerArray){
 		int tempAktiverTotal;
-		int tempLikvid;
+		int tempLikvid; 
 		for(int i = 0; i<spillerArray.length; i++) {
 			
 		tempLikvid = spillerArray[i].getLikvideMidler();
