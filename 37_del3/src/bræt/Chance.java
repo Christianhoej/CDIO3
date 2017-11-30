@@ -1,3 +1,6 @@
+/** Chance klassen nedarver atributter fra AbstracFelter Klassen.
+ * Chance klassen udfører de forskellige chancekorts handlinger, og udskriver chancekortene på Gui'en
+ */
 package bræt;
 
 import entity.Spiller; 
@@ -10,7 +13,11 @@ public class Chance extends AbstractFelter {
 	private int arr[][];
 	//private GUI gui;
 
-	//Konstruktør
+/**Konstruktøren tager feltnr og giu .............
+ * 
+ * @param feltnr
+ * @param gui
+ */
 	public Chance(int feltnr, GUI gui){
 		super(feltnr, gui);
 //		chance.blandKort();
