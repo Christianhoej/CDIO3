@@ -22,6 +22,7 @@ public class SpilTest {
 
 		Bræt b = new Bræt();		
 		GUI gui = new GUI(b.lavBræt());
+		b.samlFelter(gui);
 
 		String antal = gui.getUserSelection("Hvor mange spillere skal i være?", "2","3","4");
 		int antalSpillere = Integer.parseInt(antal);
@@ -53,6 +54,8 @@ public class SpilTest {
 			gui.addPlayer(s[i]);
 			spiller[i] = new Spiller(s[i].getName());
 			gui.getFields()[0].setCar(s[i], true);
+			spiller[i].ændrLikvideMidler(s[i].getBalance());
+			
 		}
 
 
@@ -88,7 +91,7 @@ public class SpilTest {
 
 				int felt = spiller[i].getPlacering();
 
-				b.samlFelter(gui)[felt].landOnField(spiller[i]);
+				b.getSamlFelter()[felt].landOnField(spiller[i]);
 				//					if(felt != spiller[i].getPlacering()){
 				//						b.samlFelter()[spiller[i].getPlacering()].landOnField(spiller[i]);
 				//					}

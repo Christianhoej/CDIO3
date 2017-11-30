@@ -86,7 +86,7 @@ public class Spiller {
 	}
 	
 	public int getPlacering(){
-		return placering;
+		return placering%23;
 	}
 	
 	public void setGratis(boolean gratis){

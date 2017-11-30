@@ -1,7 +1,6 @@
 package bræt;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
+import java.io.BufferedReader; 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,8 +12,6 @@ import java.util.ArrayList;
 public class Chancekort {
 	private String[] kort;
 	private String[] kort1;
-
-	private int KortNr = 0;
 	
 	public Chancekort () {
 
