@@ -155,7 +155,7 @@ public class Bræt {
 		return fields;
 	}
 	
-	public AbstractFelter[] samlFelter(GUI gui){
+	public void samlFelter(GUI gui){
 		felter[0] = new Start(0, gui); 
 		felter[1] = new Ejendom(1, gui); 
 		felter[2] = new Ejendom(2, gui);
@@ -180,7 +180,10 @@ public class Bræt {
 		felter[21] = felter[3]; 
 		felter[22] = new Ejendom(22, gui);
 		felter[23] = new Ejendom(23, gui);
-		return felter;
+		
 	}
 	
+	public AbstractFelter[] getSamlFelter(){
+		return felter;
+	}
 }
