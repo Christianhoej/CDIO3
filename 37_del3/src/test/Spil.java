@@ -107,9 +107,8 @@ public class Spil {
 	public void kastTerning(Spiller spiller, Spiller[] sp, int i, GUI gui){
 		
 		gui.showMessage("Tryk OK for at slå med terningen");
-		//int terningVærdi = spiller[i].kastTerning();
-		int terningVærdi = 3;// Kaster terningen
-		gui.setDie(terningVærdi);												// Viser terningen på pladen
+		int terningVærdi = spiller.kastTerning();						// Kaster terningen
+		gui.setDie(terningVærdi);											// Viser terningen på pladen
 
 		int forrigePlacering = spiller.getPlacering();						// Gemmer forrige placering
 		gui.getFields()[spiller.getPlacering()].setCar(s[i], false);			// Fjerner spillerens bil fra placering
