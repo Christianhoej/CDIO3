@@ -58,16 +58,16 @@ public class Spil {
 			spiller[i].setFarve(farve[i]);
 			spiller[i].ændrLikvideMidler(s[i].getBalance());
 		}
-		
+
 		while(!taber.isTaber()) {
 			for(int i = 0; i < spiller.length; i++) {
 				tjekFængsel(spiller[i]);
 				if(taber.isTaber()){
 					break;
 				}
-				
+
 				gui.showMessage("Tryk OK for at slå med terningen");
-				
+
 				int terningVærdi = spiller[i].kastTerning();							// Kaster terningen
 				gui.setDie(terningVærdi);												// Viser terningen på pladen
 
@@ -78,14 +78,15 @@ public class Spil {
 
 
 				spiller[i].PasserStart(forrigePlacering);								// Hvis spilleren har passeret start, modtager spilleren 2M
-				setGUIBalance(s[i], spiller[i]);						
+				setGUIBalance(s, spiller);						
 
 				int felt = spiller[i].getPlacering();									// Gemmer nuværende placering
-				landOnField(spiller[i]);												// Bruger logikken fra et felt
+				landOnField(spiller[i]);		 										// Bruger logikken fra et felt
 				gui.getFields()[felt].setCar(s[i], false);								// Fjerner bilen fra daværende placering
 				gui.getFields()[spiller[i].getPlacering()].setCar(s[i], true);			// Sætter bilen på nye placering
+				setGUIBalance(s, spiller);
 				spiller[i].PasserStart(felt);
-								
+
 				tjekFødselsdag(spiller[i], spiller);
 
 				// Hvis spilleren har trukket et chancekort, og har rykket bilen.
@@ -97,36 +98,39 @@ public class Spil {
 
 					spiller[i].PasserStart(felt);										// Hvis spilleren har passeret start, modtager spilleren 2M
 
-					for(int j =0; j<s.length;j++){										// Opdaterer balancen hos alle spillere på spillepladen
-						setGUIBalance(s[i], spiller[i]);
-					}
-				}
+					setGUIBalance(s, spiller);	// Opdaterer balancen hos alle spillere på spillepladen
 
-				taber.harTabt(spiller[i].getLikvideMidler());						// Tjekker om spiller har tabt
-				if(taber.isTaber()){
-					break;
+					taber.harTabt(spiller[i].getLikvideMidler());						// Tjekker om spiller har tabt
+					if(taber.isTaber()){
+						break;
+					}
 				}
 			}
 		}
 		Vinder vinder = new Vinder();
 		gui.displayChanceCard((vinder.testHvemVinder(spiller)));
+
 	}
-		
+
+
 	public void tur(Spiller spiller){		
-		
+
 	}
-	
-	public void setGUIBalance(GUI_Player s, Spiller spiller){
-		s.setBalance(spiller.getLikvideMidler());
+
+	public void setGUIBalance(GUI_Player[] s, Spiller spiller[]){
+		for(int i =0; i<spiller.length; i++){										// Opdaterer balancen hos alle spillere på spillepladen
+			s[i].setBalance(spiller[i].getLikvideMidler());
+		}
+
 	}
-	
-	
-	
+
+
+
 	public void landOnField(Spiller spiller){
 		b.getSamlFelter()[spiller.getPlacering()].landOnField(spiller);
 	}
-	
-	
+
+
 	public void tjekFødselsdag(Spiller sp, Spiller[] spiller){
 		if(sp.getFødselsdag()){
 			sp.ændrLikvideMidler(spiller.length);
@@ -134,10 +138,10 @@ public class Spil {
 				if(sp !=spiller[i]){
 					spiller[i].ændrLikvideMidler(-1);
 				}
-				setGUIBalance(s[i], spiller[i]);
 			}
+			setGUIBalance(s, spiller);
 		}
-		
+
 	}
 
 	public void tjekFængsel(Spiller spiller){
