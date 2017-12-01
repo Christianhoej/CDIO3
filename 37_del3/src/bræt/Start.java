@@ -31,15 +31,11 @@ public class Start extends AbstractFelter {
 	@Override
 	public String toString(){
 		if(feltnr == 0){
-			return "Du har landed på start, og modtager en startbonus på " + startbonus + "M";
+			return "Du har landet på start, og modtager en startbonus på " + startbonus + "M";
 		}
 		else{
 			return "Du har passeret start, og modtager en startbonus på " + startbonus + "M";
 		}
-	}
-	
-	public int getStartBonus(){
-		return startbonus;
 	}
 
 	@Override

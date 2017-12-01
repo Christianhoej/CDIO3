@@ -11,8 +11,8 @@ public class Vinder {
 	private int størsteLikvideBeholdning = -1;
 
 
-	
-  /**
+
+	/**
 	 * Metoden tester spillernes likvideBeholdning. Spilleren med den største beholdning vinder.
 	 * @param spillerArray Array af spillere, fra 2-4
 	 * @return Returnerer spiller nummeret fra arrayet, på den spiller der vinder.
@@ -21,30 +21,27 @@ public class Vinder {
 		int tempAktiverTotal;
 		int tempLikvid; 
 		for(int i = 0; i<spillerArray.length; i++) {
-			
-		tempLikvid = spillerArray[i].getLikvideMidler();
-		tempAktiverTotal = spillerArray[i].getAnlægsaktiver() + spillerArray[i].getLikvideMidler();
 
-		if(tempLikvid>størsteLikvideBeholdning) { //Hvis en likvidbeholdning er større end en anden
+			tempLikvid = spillerArray[i].getLikvideMidler();
+			tempAktiverTotal = spillerArray[i].getAnlægsaktiver() + spillerArray[i].getLikvideMidler();
+
+			if(tempLikvid>størsteLikvideBeholdning) { //Hvis en likvidbeholdning er større end en anden
 				vindere = (i+1) + " ";
 				størsteLikvideBeholdning = tempLikvid;
 				vinderNrTotalBeholdning = tempAktiverTotal;
-		}
-		else if(tempLikvid == størsteLikvideBeholdning) { //Hvis to likvide beholdninger er lige store
+			}
+			else if(tempLikvid == størsteLikvideBeholdning) { //Hvis to likvide beholdninger er lige store
 
 				tempAktiverTotal = spillerArray[i].getAnlægsaktiver() + spillerArray[i].getLikvideMidler();
 				if(tempAktiverTotal > vinderNrTotalBeholdning)
 				{
-					vinderNr = (i+1) + " ";
+					vindere = (i+1) + " ";
 					vinderNrTotalBeholdning = tempAktiverTotal;
-			  }
-		else if(tempAktiverTotal == vinderNrTotalBeholdning)
+				}
+				else if(tempAktiverTotal == vinderNrTotalBeholdning)
 					vindere += " og " + (i+1);
-    }
-
-
-		else {
-			
+			}
 		}
-		}
-		return "spiller(nr) " + vindere + " har vundet";
+		return "spiller nr " + vindere + " har vundet";
+	}
+}
