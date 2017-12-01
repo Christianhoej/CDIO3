@@ -15,7 +15,7 @@ public class Spil {
 	public Spil() {
 
 	}
-	public static void main(String[]args) {
+	public static void main(String[] args) {
 		//Her bør den del der skriver en fil laves.
 
 
@@ -34,9 +34,11 @@ public class Spil {
 		Taber taber = new Taber();
 
 		for (int i=0; i<s.length; i++) {
-			navn [i] = gui.getUserString("Indtast spiller " + (i+1) + "s navn");
+			navn[i] = gui.getUserString("Indtast spiller " + (i+1) + "s navn");
+			if(navn.equals("")){
+				navn[i] = "Spiller " + (i+1);
+			}
 			car[i]= new GUI_Car(farve[i], farve[i], GUI_Car.Type.CAR, GUI_Car.Pattern.HORIZONTAL_GRADIANT);
-
 			switch(antalSpillere) {
 			case 2:
 				s[i] = new GUI_Player(navn[i], 20, car[i]);
