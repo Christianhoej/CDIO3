@@ -68,12 +68,12 @@ public class Spil {
 				
 				gui.showMessage("Tryk OK for at slå med terningen");
 				
-				int terningVærdi = spiller[i].kastTerning();				// Kaster terningen
+				int terningVærdi = spiller[i].kastTerning();							// Kaster terningen
 				gui.setDie(terningVærdi);												// Viser terningen på pladen
 
 				int forrigePlacering = spiller[i].getPlacering();						// Gemmer forrige placering
 				gui.getFields()[spiller[i].getPlacering()].setCar(s[i], false);			// Fjerner spillerens bil fra placering
-				spiller[i].opdaterPlacering(terningVærdi);					// Opdaterer placering
+				spiller[i].opdaterPlacering(terningVærdi);								// Opdaterer placering
 				gui.getFields()[spiller[i].getPlacering()].setCar(s[i], true);			// Sætter bilen på nye placering
 
 
