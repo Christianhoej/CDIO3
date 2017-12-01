@@ -1,10 +1,13 @@
 package entity;
 
+import java.awt.Color;
+
 public class Spiller {
 	private String navn;
 	Aktivbeholdning aktivbeholdning = new Aktivbeholdning(0);
 
 	private int placering=0;
+	private Color farve;
 	private int givKortVidere;
 	private boolean fængsel;
 	private boolean frikort;
@@ -50,9 +53,22 @@ public class Spiller {
 		ændrAnlægsaktiverVærdi(-skødepris);
 	}
 
-//	public int getSpillerNummer() {
-//		return spillerNummer;
-//	}
+	public boolean ejerEjendom(int feltNr){
+		for(int i=0; i<aktivbeholdning.getSkøder().length; i++){
+			if(aktivbeholdning.getSkøder()[i] == feltNr){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void setFarve(Color farve){
+		this.farve = farve;
+	}
+	
+	public Color getFarve(){
+		return farve;
+	}
 	
 	public void setFængsel(boolean fængsel){
 		this.fængsel = fængsel;

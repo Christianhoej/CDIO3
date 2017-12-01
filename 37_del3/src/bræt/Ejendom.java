@@ -4,6 +4,8 @@
 package bræt;
 
 import entity.Spiller;
+import gui_fields.GUI_Field;
+import gui_fields.GUI_Ownable;
 import gui_main.GUI;
 
 public class Ejendom extends AbstractFelter {
@@ -14,7 +16,7 @@ public class Ejendom extends AbstractFelter {
 	private String feltNavn;
 	//	private Color farve;
 	//	private GUI_Field[] felter;
-	private int feltnr;
+	private int makkerFeltnr;
 
 	/**Konstruktøren tager feltnr og gui.
 	 * Konstruktøren består af en switch case, med cases til hvert af ejendomsfelterne, hvor case
@@ -26,37 +28,37 @@ public class Ejendom extends AbstractFelter {
 	public Ejendom(int feltnr, GUI gui) {
 		super(feltnr, gui);
 		switch(feltnr){
-		case 1: feltNavn = "Burgerbaren"; pris = 1; //farve = new Color(153,102,0); break;
+		case 1: feltNavn = "Burgerbaren"; pris = 1; makkerFeltnr = 2;
 		break;
-		case 2: feltNavn = "Pizzariaet"; pris = 1; //farve = new Color(153,102,0); break;
+		case 2: feltNavn = "Pizzariaet"; pris = 1; makkerFeltnr = 1;
 		break;
-		case 4: feltNavn = "Slikbutikken"; pris = 1; //farve = new Color(51, 204, 255); break;
+		case 4: feltNavn = "Slikbutikken"; pris = 1; makkerFeltnr = 5;
 		break;
-		case 5: feltNavn = "Iskiosken"; pris = 1; //farve = new Color(51, 204, 255); break;
+		case 5: feltNavn = "Iskiosken"; pris = 1; makkerFeltnr = 4;
 		break;
-		case 7: feltNavn = "Museet"; pris = 2; //farve = new Color(204, 0, 100); break;
+		case 7: feltNavn = "Museet"; pris = 2; makkerFeltnr = 8;
 		break;
-		case 8: feltNavn = "Biblioteket"; pris = 2; //farve = new Color(204, 0, 100); break;
+		case 8: feltNavn = "Biblioteket"; pris = 2; makkerFeltnr = 7;
 		break;		
-		case 10: feltNavn = "Skaterparken"; pris = 2; //farve = Color.YELLOW; break;
+		case 10: feltNavn = "Skaterparken"; pris = 2; makkerFeltnr = 11;
 		break;
-		case 11: feltNavn = "Swimmingpool"; pris = 2; //farve = Color.YELLOW; break;
+		case 11: feltNavn = "Swimmingpool"; pris = 2; makkerFeltnr = 10;
 		break;
-		case 13: feltNavn = "Spillehallen"; pris = 3; //farve = new Color(204, 0, 0); break;
+		case 13: feltNavn = "Spillehallen"; pris = 3; makkerFeltnr = 14;
 		break;
-		case 14: feltNavn = "Biografen"; pris = 3; //farve = new Color(204, 0, 0); break;
+		case 14: feltNavn = "Biografen"; pris = 3; makkerFeltnr = 13;
 		break;
-		case 16: feltNavn = "Lejetøjsbutikken"; pris = 3; //farve = new Color(255, 153,0); break;
+		case 16: feltNavn = "Lejetøjsbutikken"; pris = 3; makkerFeltnr = 17;
 		break;
-		case 17: feltNavn = "Dyrehaven"; pris = 3; //farve = new Color(255, 153,0); break;
+		case 17: feltNavn = "Dyrehaven"; pris = 3; makkerFeltnr = 16;
 		break;
-		case 19: feltNavn = "Bowlinghallen"; pris = 4; //farve = new Color(0, 153, 0); break;
+		case 19: feltNavn = "Bowlinghallen"; pris = 4; makkerFeltnr = 20;
 		break;
-		case 20: feltNavn = "Zoo"; pris = 4; //farve = new Color(0, 153, 0); break;
+		case 20: feltNavn = "Zoo"; pris = 4; makkerFeltnr = 19;
 		break;
-		case 22: feltNavn = "Vandlandet"; pris = 5; //farve = Color.BLUE; break;
+		case 22: feltNavn = "Vandlandet"; pris = 5; makkerFeltnr = 23;
 		break;
-		case 23: feltNavn = "Stranpromenaden"; pris = 5; //farve = Color.BLUE; break;
+		case 23: feltNavn = "Stranpromenaden"; pris = 5; makkerFeltnr = 22;
 		break;
 		}
 	}
@@ -80,6 +82,11 @@ public class Ejendom extends AbstractFelter {
 	}
 
 	public void setEjer(Spiller spiller) {
+		GUI_Field f = gui.getFields()[feltnr];
+		if(f instanceof GUI_Ownable){
+			GUI_Ownable o = (GUI_Ownable) f;
+			o.setBorder(spiller.getFarve(), spiller.getFarve());
+		}
 		this.spiller = spiller;
 	}
 
@@ -89,6 +96,14 @@ public class Ejendom extends AbstractFelter {
 
 	public void fjernEjer(){
 		this.spiller = null;
+	}
+	
+	public void setFeltnr(int feltnr){
+		this.feltnr = feltnr;
+	}
+	
+	public int getFeltnr(){
+		return feltnr;
 	}
 
 	public int getPris() {
@@ -112,6 +127,7 @@ public class Ejendom extends AbstractFelter {
 	 */
 	@Override
 	public void landOnField(Spiller spiller){
+		
 		// Hvis ejendommen er til salg og spiller får den gratis ift. chancekort
 		if(spiller.getGratis() && isTilsalg()){
 			gui.showMessage(toString() + " og får grunden gratis!");
@@ -122,26 +138,37 @@ public class Ejendom extends AbstractFelter {
 		}
 		// Hvis ejendommen ejes af en anden, og købes fri.
 		else if (spiller.getGratis() && !isTilsalg()) {
-			gui.showMessage(toString() + " og køber det fra " + getEjer());
-			spiller.tilførSkøde(feltnr, -pris);
+			gui.showMessage(toString() + " og køber det fra " + getEjer().getNavn()+ "for " + pris+"M");
+			spiller.tilførSkøde(feltnr, pris);
+			getEjer().sælgSkøde(feltnr, pris);
 			setEjer(spiller);
 			spiller.setGratis(false);
-			getEjer().tilførSkøde(feltnr, pris);
 		}
-
 		// Hvis ejendommen er til salg og skal købes
-		if(isTilsalg()){
-			gui.showMessage(toString() + " og købt grunden for " + pris);
+		else if(isTilsalg()){
+			gui.showMessage(toString() + " og køber grunden for " + pris+"M");
 			spiller.tilførSkøde(feltnr, pris);
 			setTilsalg(false);
 			setEjer(spiller);
 		}
 		// Hvis ejendommen ejes, og spiller skal betale husleje.
-		else if(!isTilsalg()&& getEjer().getNavn() != spiller.getNavn()){
-			gui.showMessage(toString() + " og skal betale " + pris + " til " + getEjer());
-			getEjer().ændrLikvideMidler(pris);
-			spiller.ændrLikvideMidler(-pris);
+		else if(!isTilsalg()&& getEjer() != spiller){
+			//System.out.println(makkerFeltnr);
+			//System.out.println(getEjer().getNavn());
 			
+			//System.out.println(getEjer().ejerEjendom(makkerFeltnr));
+			if(getEjer().ejerEjendom(makkerFeltnr)){
+				gui.showMessage(toString() + ". Da " + getEjer().getNavn() +" også ejer "+ feltNavn + ", skal "+ spiller.getNavn() +" betale dobbelt pris," + (2*pris) + "M til " + getEjer().getNavn());
+				getEjer().ændrLikvideMidler(2*pris);
+				spiller.ændrLikvideMidler(-2*pris);
+			}
+			else{
+				gui.showMessage(toString() + " og skal betale " + pris + "M til " + getEjer().getNavn());
+				getEjer().ændrLikvideMidler(pris);
+				spiller.ændrLikvideMidler(-pris);
+			}
 		}
+
+
 	}
 }
