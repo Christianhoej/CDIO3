@@ -4,21 +4,10 @@ import entity.Spiller;
 import gui_main.GUI;
 
 public class Fængsel extends AbstractFelter {
-
-	
-
 	//Konstruktør kan laves
 	public Fængsel(int feltnr, GUI gui){
 		super(feltnr, gui);
 	}
-
-//	@Override
-//	public void opretFelt(){
-//		felter[feltnr] = new GUI_Jail();
-//		felter[feltnr].setTitle("Gå i fængsel");
-//		felter[feltnr].setDescription("");
-//		felter[feltnr].setSubText("Gå i fængsel");
-//	}
 	
 	@Override
 	public String toString(){

@@ -16,8 +16,6 @@ public abstract class  AbstractFelter {
 	
 	public abstract String toString();
 	
-	//public abstract void opretFelt();
-	
 	public abstract void landOnField(Spiller spiller);
 	
 	

@@ -137,28 +137,25 @@ public class Ejendom extends AbstractFelter {
 			spiller.setGratis(false);
 		}
 //		// Hvis ejendommen ejes af en anden, og købes fri.
-//		else if (spiller.getGratis() && !isTilsalg()) {
-//			gui.showMessage(toString() + " og køber det fra " + getEjer().getNavn()+ "for " + pris+"M");
-//			spiller.tilførSkøde(feltnr, pris);
-//			getEjer().sælgSkøde(feltnr, pris);
-//			setEjer(spiller);
-//			spiller.setGratis(false);
-//		}
+		else if (spiller.getGratis() && !isTilsalg()) {
+			gui.showMessage(toString() + " og køber det fra " + getEjer().getNavn()+ "for " + pris+"M");
+			spiller.tilførSkøde(feltnr, pris);
+			getEjer().sælgSkøde(feltnr, pris);
+			setEjer(spiller);
+			spiller.setGratis(false);
+		}
 		// Hvis ejendommen er til salg og skal købes
 		else if(isTilsalg()){
 			gui.showMessage(toString() + " og køber grunden for " + pris+"M");
 			spiller.tilførSkøde(feltnr, pris);
 			setTilsalg(false);
 			setEjer(spiller);
+			spiller.setGratis(false);
 		}
 		// Hvis ejendommen ejes, og spiller skal betale husleje.
 		else if(!isTilsalg()&& getEjer() != spiller){
-			//System.out.println(makkerFeltnr);
-			//System.out.println(getEjer().getNavn());
-			
-			//System.out.println(getEjer().ejerEjendom(makkerFeltnr));
 			if(getEjer().ejerEjendom(makkerFeltnr)){
-				gui.showMessage(toString() + ". Da " + getEjer().getNavn() +" også ejer "+ feltNavn + ", skal "+ spiller.getNavn() +" betale dobbelt pris," + (2*pris) + "M til " + getEjer().getNavn());
+				gui.showMessage(toString() + ". Da " + getEjer().getNavn() +" også ejer det andet felt af samme farve, skal "+ spiller.getNavn() +" betale dobbelt pris," + (2*pris) + "M til " + getEjer().getNavn());
 				getEjer().ændrLikvideMidler(2*pris);
 				spiller.ændrLikvideMidler(-2*pris);
 			}
@@ -167,6 +164,7 @@ public class Ejendom extends AbstractFelter {
 				getEjer().ændrLikvideMidler(pris);
 				spiller.ændrLikvideMidler(-pris);
 			}
+			spiller.setGratis(false);
 		}
 
 

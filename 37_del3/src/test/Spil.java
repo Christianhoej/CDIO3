@@ -65,42 +65,14 @@ public class Spil {
 				if(taber.isTaber()){
 					break;
 				}
-
-				gui.showMessage("Tryk OK for at slå med terningen");
-
-				int terningVærdi = spiller[i].kastTerning();							// Kaster terningen
-				gui.setDie(terningVærdi);												// Viser terningen på pladen
-
-				int forrigePlacering = spiller[i].getPlacering();						// Gemmer forrige placering
-				gui.getFields()[spiller[i].getPlacering()].setCar(s[i], false);			// Fjerner spillerens bil fra placering
-				spiller[i].opdaterPlacering(terningVærdi);								// Opdaterer placering
-				gui.getFields()[spiller[i].getPlacering()].setCar(s[i], true);			// Sætter bilen på nye placering
-
-
-				spiller[i].PasserStart(forrigePlacering);								// Hvis spilleren har passeret start, modtager spilleren 2M
-				setGUIBalance(s, spiller);						
-
-				int felt = spiller[i].getPlacering();									// Gemmer nuværende placering
-				landOnField(spiller[i]);		 										// Bruger logikken fra et felt
-				gui.getFields()[felt].setCar(s[i], false);								// Fjerner bilen fra daværende placering
-				gui.getFields()[spiller[i].getPlacering()].setCar(s[i], true);			// Sætter bilen på nye placering
-				setGUIBalance(s, spiller);
-				spiller[i].PasserStart(felt);
-
-				tjekFødselsdag(spiller[i], spiller);
-
+				kastTerning(spiller[i], spiller, i, gui);
+				int felt = tur(spiller[i], spiller, i, gui);						// Tjekker om spiller har tabt
+				if(taber.isTaber()){
+					break;
+				}
 				// Hvis spilleren har trukket et chancekort, og har rykket bilen.
 				if(felt != spiller[i].getPlacering() && spiller[i].getPlacering() !=6){ // Hvis spillerens placering ikke er den samme, som før, og spilleren ikke er i fængsel
-					felt = spiller[i].getPlacering();
-					landOnField(spiller[i]);											// Bruger logikken fra et felt
-					gui.getFields()[felt].setCar(s[i], false);							// Fjerner bilen fra daværende placering
-					gui.getFields()[spiller[i].getPlacering()].setCar(s[i], true);		// Sætter bilen på nye placering
-
-					spiller[i].PasserStart(felt);										// Hvis spilleren har passeret start, modtager spilleren 2M
-
-					setGUIBalance(s, spiller);	// Opdaterer balancen hos alle spillere på spillepladen
-
-					taber.harTabt(spiller[i].getLikvideMidler());						// Tjekker om spiller har tabt
+					tur(spiller[i], spiller, i, gui);
 					if(taber.isTaber()){
 						break;
 					}
@@ -113,8 +85,35 @@ public class Spil {
 	}
 
 
-	public void tur(Spiller spiller){		
+	public int tur(Spiller spiller, Spiller[] sp, int i, GUI gui){		
+		int felt = spiller.getPlacering();									// Gemmer nuværende placering
+		landOnField(spiller);		 										// Bruger logikken fra et felt
+		gui.getFields()[felt].setCar(s[i], false);								// Fjerner bilen fra daværende placering
+		gui.getFields()[spiller.getPlacering()].setCar(s[i], true);			// Sætter bilen på nye placering
+		if(!spiller.isFængsel()){
+			spiller.PasserStart(felt);
+		}
+		tjekFødselsdag(spiller, sp);
+		setGUIBalance(s, sp);
+		taber.harTabt(spiller.getLikvideMidler());
+		return felt;
+	}
+	
+	
+	
+	public void kastTerning(Spiller spiller, Spiller[] sp, int i, GUI gui){
+		
+		gui.showMessage("Tryk OK for at slå med terningen");
+		//int terningVærdi = spiller[i].kastTerning();
+		int terningVærdi = 3;// Kaster terningen
+		gui.setDie(terningVærdi);												// Viser terningen på pladen
 
+		int forrigePlacering = spiller.getPlacering();						// Gemmer forrige placering
+		gui.getFields()[spiller.getPlacering()].setCar(s[i], false);			// Fjerner spillerens bil fra placering
+		spiller.opdaterPlacering(terningVærdi);								// Opdaterer placering
+		gui.getFields()[spiller.getPlacering()].setCar(s[i], true);			// Sætter bilen på nye placering
+		spiller.PasserStart(forrigePlacering);								// Hvis spilleren har passeret start, modtager spilleren 2M
+		setGUIBalance(s, sp);	
 	}
 
 	public void setGUIBalance(GUI_Player[] s, Spiller spiller[]){
@@ -124,8 +123,6 @@ public class Spil {
 
 	}
 
-
-
 	public void landOnField(Spiller spiller){
 		b.getSamlFelter()[spiller.getPlacering()].landOnField(spiller);
 	}
@@ -133,7 +130,7 @@ public class Spil {
 
 	public void tjekFødselsdag(Spiller sp, Spiller[] spiller){
 		if(sp.getFødselsdag()){
-			sp.ændrLikvideMidler(spiller.length);
+			sp.ændrLikvideMidler(spiller.length-1);
 			for(int i=0; i<spiller.length; i++){
 				if(sp !=spiller[i]){
 					spiller[i].ændrLikvideMidler(-1);
@@ -143,7 +140,7 @@ public class Spil {
 		}
 
 	}
-
+	
 	public void tjekFængsel(Spiller spiller){
 		if(spiller.isFængsel()){												// Hvis spiller er i fængsel
 			if(spiller.getFrikort()){										// Hvis spiller har get out of jail free kort, bruges det

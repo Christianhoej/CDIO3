@@ -52,6 +52,7 @@ public class Spiller {
 	}
 
 	public boolean ejerEjendom(int feltNr){
+		
 		for(int i=0; i<aktivbeholdning.getSkøder().length; i++){
 			if(aktivbeholdning.getSkøder()[i] == feltNr){
 				return true;

@@ -7,7 +7,7 @@ public class Aktivbeholdning {
 
 	private int anlægsAktiver = 0;
 	private int likvideMidler = 0;
-	private int[]skøder = new int[16];
+	private int[]skøder = new int[24];
 
 	/**
 	 * Konstruktør til Aktivbeholdning
@@ -47,19 +47,13 @@ public class Aktivbeholdning {
 	 * @param feltNr Angiver hvilket felt på brættet
 	 */
 	public void købSkøde(int feltNr) {
-		for(int i = 0; i<skøder.length; i++) {
-			if (skøder[i] == feltNr) {
-				skøder[i] = 0;
-				break; 
-			}
-		}
+		skøder[feltNr] = feltNr;
 	}
 	/**
 	 * Metode til at afgive skøder fra bestemte felter
 	 * @param feltNr
 	 */
 	public void sælgSkøde(int feltNr) {
-
 		for(int i = 0; i<skøder.length; i++) {
 			if (skøder[i] == feltNr) {
 				skøder[i] = 0;

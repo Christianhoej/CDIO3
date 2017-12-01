@@ -31,7 +31,7 @@ public class Chancekort {
 		kort[4] = "Chance5#Du har spist for meget slik. BETAL M2 til banken.";
 		kort[5] = "Chance6#GRATIS FELT! Ryk frem til et orange eller grønt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.";
 		kort[6] = "Chance7#GRATIS FELT! Ryk frem til et lyseblåt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.";
-		kort[7] = "Chance80#Du løslades uden omkostninger. Behold dette kort, indtil du får brug for det.";
+		kort[7] = "Chance8#Du løslades uden omkostninger. Behold dette kort, indtil du får brug for det.";
 		kort[8] = "Chance9#Ryk frem til Strandpromenaden";
 		kort[9] = "Chance10#Det er din fødselsdag! Alle giver dig M1. TILLYKKE MED FØDSELDAGEN!";
 		kort[10] = "Chance11#GRATIS FELT! Ryk frem til et pink eller mørkeblåt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.";
