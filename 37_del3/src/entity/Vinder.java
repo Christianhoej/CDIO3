@@ -1,9 +1,7 @@
 /** Klassen vinder bliver aktiveret når en spiller har tabt.
  * Klassen har metoder som finder spillets vinder.
  */
-package nogetAndet;
-
-import entity.Spiller;
+package entity;
 
 public class Vinder {
 	private String vindere;
@@ -42,6 +40,6 @@ public class Vinder {
 					vindere += " og " + (i+1);
 			}
 		}
-		return "spiller nr " + vindere + " har vundet";
+		return "Spiller " + vindere + "har vundet";
 	}
 }

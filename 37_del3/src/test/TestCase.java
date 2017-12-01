@@ -1,6 +1,6 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals; 
 
 import org.junit.After;
 import org.junit.Before;
@@ -8,11 +8,11 @@ import org.junit.Test;
 
 import entity.Aktivbeholdning;
 import entity.Spiller;
-import nogetAndet.Taber;
-import nogetAndet.Vinder;
+import entity.Taber;
+import entity.Vinder;
 
 public class TestCase {
-	
+
 	Taber taberTest;
 	Aktivbeholdning beholdningTest;
 	Vinder vinderTest;
@@ -36,15 +36,13 @@ public class TestCase {
 	 */
 	@Test
 	public void testAddLikvidemidler() {
-		beholdningTest.addLikvideMidler(-101);
+		beholdningTest.addLikvideMidler(10);
 		int actual = beholdningTest.getLikvideMidler();
-		int expected = -1;
+		int expected = 110;
 		assertEquals(actual, expected);
 	}
-	
-	
-	
-	/**Test af hatTabt metoden.
+
+	/**Test af harTabt metoden.
 	 * harTabt(beholdningsværdi), 
 	 * Positiv: beholdningsværdi sættes til 10, expected false, testen godkendes da spilleren ikke taber
 	 * Negativ: beholdningsværdi sættes til -10, expected false, testen fejler da spilleren taber, grundet negativ værdi
@@ -57,27 +55,31 @@ public class TestCase {
 		assertEquals(actual, expected);
 	}
 
-//	@Test
-	public int testVinder; {
-		//Spiller test[];
-		Spiller spiller1 = new Spiller("Ahad") ;
-		Spiller spiller2 = new Spiller("Janus");
+
+	/**Test af testHvemVinder metoden.
+	 * testHvemVinder(Array af spillere) 
+	 * Positiv: Likvidemidler sættes til hhv. 20 og 21 for spiller 1 og spiller 2. Testen godtages, da spiller 2 vinder
+	 * Negativ: Likvidemidler sættes til hhv. 20 og 21 for spiller 1 og spiller 2. Testen fejler, da spiller 1 vinder
+	 */
+	@Test
+	public void testTestHvemVinder() {
+		Spiller spiller1 = new Spiller("Spiller 1") ;
+		Spiller spiller2 = new Spiller("Spiller 2");
 		spiller1.ændrLikvideMidler(20);
 		spiller2.ændrLikvideMidler(21);
-		vinderTest.testHvemVinder(new Spiller[] {spiller1, spiller2});
-		Spiller[] actual = vinderTest.testHvemVinder();
-		String expected = "Janus";
+		String actual = vinderTest.testHvemVinder(new Spiller[] {spiller1, spiller2});
+		String expected = spiller2.getNavn()+" har vundet";
 		assertEquals(actual, expected);
 	}
-	
-	
-	
-	}
-		
-	
 
 
-		
-	
+
+}
+
+
+
+
+
+
 
 

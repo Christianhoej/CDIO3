@@ -1,14 +1,14 @@
-package test;
+package controller;
 
 import java.awt.Color;
 
 import bræt.Bræt;
 import entity.Spiller;
+import entity.Taber;
+import entity.Vinder;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
-import nogetAndet.Taber;
-import nogetAndet.Vinder;
 
 public class Spil {
 
@@ -87,7 +87,6 @@ public class Spil {
 
 	}
 
-
 	public int tur(Spiller spiller, Spiller[] sp, int i, GUI gui){		
 		int felt = spiller.getPlacering();									// Gemmer nuværende placering
 		landOnField(spiller);		 										// Bruger logikken fra et felt
@@ -102,12 +101,10 @@ public class Spil {
 		return felt;
 	}
 	
-	
-	
 	public void kastTerning(Spiller spiller, Spiller[] sp, int i, GUI gui){
 		
 		gui.showMessage("Tryk OK for at slå med terningen");
-		int terningVærdi = spiller.kastTerning();						// Kaster terningen
+		int terningVærdi = spiller.kastTerning();							// Kaster terningen
 		gui.setDie(terningVærdi);											// Viser terningen på pladen
 
 		int forrigePlacering = spiller.getPlacering();						// Gemmer forrige placering
@@ -119,7 +116,7 @@ public class Spil {
 	}
 
 	public void setGUIBalance(GUI_Player[] s, Spiller spiller[]){
-		for(int i =0; i<spiller.length; i++){										// Opdaterer balancen hos alle spillere på spillepladen
+		for(int i =0; i<spiller.length; i++){								// Opdaterer balancen hos alle spillere på spillepladen
 			s[i].setBalance(spiller[i].getLikvideMidler());
 		}
 
@@ -128,7 +125,6 @@ public class Spil {
 	public void landOnField(Spiller spiller){
 		b.getSamlFelter()[spiller.getPlacering()].landOnField(spiller);
 	}
-
 
 	public void tjekFødselsdag(Spiller sp, Spiller[] spiller){
 		if(sp.getFødselsdag()){

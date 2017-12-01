@@ -1,7 +1,7 @@
 /**
  * Klassen taber tester for hver runde om en spiller har opnået en beholdning på mindre end 0.
  */
-package nogetAndet;
+package entity;
 
 public class Taber {
 	private boolean taber;

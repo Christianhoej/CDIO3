@@ -1,6 +1,6 @@
 package main;
 
-import test.Spil;
+import controller.Spil;
 
 public class Main {
 	public static void main(String[] args){

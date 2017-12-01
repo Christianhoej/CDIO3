@@ -1,6 +1,7 @@
-package nogetAndet;
+package test;
 
 import entity.Spiller;
+import entity.Vinder;
 
 public class VinderTest {
 
