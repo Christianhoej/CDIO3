@@ -186,4 +186,6 @@ public class Bræt {
 	public AbstractFelter[] getSamlFelter(){
 		return felter;
 	}
+	
+	
 }

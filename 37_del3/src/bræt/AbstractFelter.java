@@ -5,7 +5,7 @@ import gui_main.GUI;
 
 public abstract class  AbstractFelter {
 
-	private int feltnr;
+	protected int feltnr;
 	protected GUI gui;
 
 

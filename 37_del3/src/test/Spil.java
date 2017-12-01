@@ -5,7 +5,6 @@ import java.awt.Color;
 import bræt.Bræt;
 import entity.Spiller;
 import gui_fields.GUI_Car;
-import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 import nogetAndet.Taber;
@@ -53,6 +52,7 @@ public class Spil {
 			gui.addPlayer(s[i]);
 			gui.getFields()[0].setCar(s[i], true);
 			spiller[i] = new Spiller(s[i].getName());
+			spiller[i].setFarve(farve[i]);
 			spiller[i].ændrLikvideMidler(s[i].getBalance());
 		}
 
@@ -77,6 +77,7 @@ public class Spil {
 					gui.showMessage("Tryk OK for at slå med terningen");
 					
 					int terningeVærdi = spiller[i].kastTerning();
+					//int terningeVærdi = 1;
 					gui.setDie(terningeVærdi);
 					gui.showMessage(spiller[i].getNavn() + " slog " + terningeVærdi);
 					int forrigePlacering = spiller[i].getPlacering();
@@ -86,7 +87,6 @@ public class Spil {
 					
 					
 					int felt = spiller[i].getPlacering();
-					
 					b.getSamlFelter()[felt].landOnField(spiller[i]);
 					for(int j =0; j<s.length;j++){
 						s[j].setBalance(spiller[j].getLikvideMidler());

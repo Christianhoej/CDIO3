@@ -48,8 +48,8 @@ public class Aktivbeholdning {
 	 */
 	public void købSkøde(int feltNr) {
 		for(int i = 0; i<skøder.length; i++) {
-			if (skøder[i] == 0) {
-				skøder[i] =feltNr;
+			if (skøder[i] == feltNr) {
+				skøder[i] = 0;
 				break; 
 			}
 		}
@@ -66,8 +66,10 @@ public class Aktivbeholdning {
 				break; 
 			}
 		}
-
-
+	}
+	
+	public int[] getSkøder(){
+		return skøder;
 	}
 
 }
