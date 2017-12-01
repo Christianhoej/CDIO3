@@ -52,7 +52,7 @@ public class Bræt {
 		fields[4] = new GUI_Street();
 		fields[4].setTitle("Slikbutikken");
 		fields[4].setDescription("");
-		fields[4].setSubText("");
+		fields[4].setSubText(""); 
 		fields[4].setBackGroundColor(new Color(51, 204, 255)); 
 		
 		fields[5] = new GUI_Street();
@@ -186,4 +186,6 @@ public class Bræt {
 	public AbstractFelter[] getSamlFelter(){
 		return felter;
 	}
+	
+	
 }
