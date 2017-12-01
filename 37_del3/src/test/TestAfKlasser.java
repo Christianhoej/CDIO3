@@ -1,6 +1,8 @@
-package bræt;
+package test;
 
 import java.io.IOException;
+
+import bræt.Chancekort;
 
 public class TestAfKlasser {
 
