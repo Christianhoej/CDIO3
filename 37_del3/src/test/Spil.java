@@ -32,15 +32,18 @@ public class Spil {
 		int antalSpillere = Integer.parseInt(antal);
 		Spiller[] spiller = new Spiller[antalSpillere];
 
+
 		// Tilføjer spillerne til spillet
 		for (int i=0; i<spiller.length; i++) {
 			navn [i] = gui.getUserString("Indtast spiller " + (i+1) + "s navn");
+
 			if(navn[i].equals("")){
 				navn[i] = "Spiller " + (i+1);
 			}
 			car[i]= new GUI_Car(farve[i], farve[i], GUI_Car.Type.CAR, GUI_Car.Pattern.HORIZONTAL_GRADIANT);
 
-			// Afgører startbalancen for spillerne
+
+			// Afgører startbalancen for spillerne og tilføjer dem til spillepladen
 			switch(antalSpillere) {
 			case 2:
 				s[i] = new GUI_Player(navn[i], 20, car[i]);
