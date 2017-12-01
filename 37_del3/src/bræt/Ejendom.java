@@ -136,14 +136,14 @@ public class Ejendom extends AbstractFelter {
 			setEjer(spiller);
 			spiller.setGratis(false);
 		}
-		// Hvis ejendommen ejes af en anden, og købes fri.
-		else if (spiller.getGratis() && !isTilsalg()) {
-			gui.showMessage(toString() + " og køber det fra " + getEjer().getNavn()+ "for " + pris+"M");
-			spiller.tilførSkøde(feltnr, pris);
-			getEjer().sælgSkøde(feltnr, pris);
-			setEjer(spiller);
-			spiller.setGratis(false);
-		}
+//		// Hvis ejendommen ejes af en anden, og købes fri.
+//		else if (spiller.getGratis() && !isTilsalg()) {
+//			gui.showMessage(toString() + " og køber det fra " + getEjer().getNavn()+ "for " + pris+"M");
+//			spiller.tilførSkøde(feltnr, pris);
+//			getEjer().sælgSkøde(feltnr, pris);
+//			setEjer(spiller);
+//			spiller.setGratis(false);
+//		}
 		// Hvis ejendommen er til salg og skal købes
 		else if(isTilsalg()){
 			gui.showMessage(toString() + " og køber grunden for " + pris+"M");

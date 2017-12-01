@@ -10,8 +10,6 @@ public class Chance extends AbstractFelter {
 
 	private Chancekort chance = new Chancekort();
 	private String chanceBeskrivelse;
-	private int arr[][];
-	//private GUI gui;
 
 	/**Konstruktøren tager feltnr og giu .............
 	 * 
@@ -56,32 +54,27 @@ public class Chance extends AbstractFelter {
 			nytKort = false;
 
 			switch (chanceBeskrivelse.split("#")[0]){
+			
 			case "Chance1": 
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
-				spiller.setGivKortVidere(0); 
-				setChancekort();
-				nytKort = true;
-				break;
+				gui.showMessage("");
+				spiller.setPlacering(0);
+				return;
 			case "Chance2": 
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
-				spiller.setPlacering(0);
+				felt = gui.getUserSelection("Hvor mange felter vil du rykke frem?", "0","1","2","3","4","5");
+				spiller.opdaterPlacering(Integer.parseInt(felt));
 				return;
 			case "Chance3": 
-				gui.setChanceCard(getChancekort());
-				gui.displayChanceCard();
-				felt = gui.getUserSelection("Hvor mange felter vil du rykke frem?", "0","1","2","3","4","5");
-				spiller.setPlacering(Integer.parseInt(felt));
-				return;
-			case "Chance4": 
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
 				felt = gui.getUserSelection("Hvilket orange felt vil du rykke frem til?", "16", "17");
 				spiller.setGratis(true);
 				spiller.setPlacering(Integer.parseInt(felt));
 				return;
-			case "Chance5": 
+			case "Chance4": 
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
 				felt = gui.getUserButtonPressed("Vil du rykke et felt frem eller tage et chancekort?", "Ryk et felt frem", "Tag chancekort");
@@ -94,102 +87,118 @@ public class Chance extends AbstractFelter {
 					nytKort = true;
 					break;
 				}
-				
-			case "Chance6": 
-				gui.setChanceCard(getChancekort());
-				gui.displayChanceCard();
-				spiller.setGivKortVidere(1); 
-				setChancekort();
-				nytKort = true;
-				break;
-			case "Chance7": 
+			case "Chance5": 
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
 				gui.showMessage("Du skal betale 2M til banken");
 				spiller.ændrLikvideMidler(-2);
 				return;
-			case "Chance8": 
+			case "Chance6": 
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
 				felt = gui.getUserSelection("Hvilket orange eller grønt felt vil du rykke frem til?", "16", "17", "19", "20");
 				spiller.setGratis(true);
 				spiller.setPlacering(Integer.parseInt(felt));
 				return;
-			case "Chance9": 
+			case "Chance7": 
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
 				felt = gui.getUserSelection("Hvilket lyseblåt felt vil du rykke frem til?", "4", "5");
 				spiller.setGratis(true);
 				spiller.setPlacering(Integer.parseInt(felt));
 				return;
+			case "Chance8":
+				gui.setChanceCard(getChancekort());
+				gui.displayChanceCard();
+				gui.showMessage("Du har fået et fængsel-frikort");
+				spiller.setFrikort(true);
+				return;
+			case "Chance9":
+				gui.setChanceCard(getChancekort());
+				gui.displayChanceCard();
+				gui.showMessage("Ryk frem til Strandpromenaden");
+				spiller.setPlacering(23);
+				return;
+			
 			case "Chance10":
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
-				spiller.setFrikort(true);
+				gui.showMessage("");
+				spiller.setFødselsdag(true);
 				return;
 			case "Chance11":
-				gui.setChanceCard(getChancekort());
-				gui.displayChanceCard();
-				spiller.setPlacering(23);
-				return;
-			case "Chance12":
-				gui.setChanceCard(getChancekort());
-				gui.displayChanceCard();
-				spiller.setGivKortVidere(2); 
-				setChancekort();
-				nytKort = true;
-				break;
-			case "Chance13":
-				gui.setChanceCard(getChancekort());
-				gui.displayChanceCard();
-				spiller.setGivKortVidere(3); 
-				setChancekort();
-				nytKort = true;
-				break;
-			case "Chance14":
-				gui.setChanceCard(getChancekort());
-				gui.displayChanceCard();
-				return;
-			case "Chance15":
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
 				felt = gui.getUserSelection("Hvilket lyseblåt felt vil du rykke frem til?", "7", "8", "22", "23");
 				spiller.setGratis(true);
 				spiller.setPlacering(Integer.parseInt(felt));
 				return;
-			case "Chance16":
+			case "Chance12":
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
+				gui.showMessage("");
 				spiller.ændrLikvideMidler(2);
 				return;
-			case "Chance17":
+			case "Chance13":
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
 				felt = gui.getUserSelection("Hvilket lyseblåt felt vil du rykke frem til?", "13", "14");
 				spiller.setGratis(true);
 				spiller.setPlacering(Integer.parseInt(felt));
 				return;
-			case "Chance18":
+			case "Chance14":
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
 				gui.showMessage("Ryk frem til Skaterparken");
 				spiller.setGratis(true);
 				spiller.setPlacering(10);
 				return;
-			case "Chance19":
+			case "Chance15":
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
 				felt = gui.getUserSelection("Hvilket lyseblåt felt vil du rykke frem til?", "4", "5", "13", "14");
 				spiller.setGratis(true);
 				spiller.setPlacering(Integer.parseInt(felt));
 				return;
-			case "Chance20":
+			case "Chance16":
 				gui.setChanceCard(getChancekort());
 				gui.displayChanceCard();
 				felt = gui.getUserSelection("Hvilket lyseblåt felt vil du rykke frem til?", "1", "2", "10", "11");
 				spiller.setPlacering(Integer.parseInt(felt));
+				spiller.setGratis(true);
 				return;
+//			case "Chance17": 
+//				gui.setChanceCard(getChancekort());
+//				gui.displayChanceCard();
+//				spiller.setGivKortVidere(0); 
+//				setChancekort();
+//				nytKort = true;
+//				break;
+//			case "Chance18": 
+//				gui.setChanceCard(getChancekort());
+//				gui.displayChanceCard();
+//				spiller.setGivKortVidere(1); 
+//				setChancekort();
+//				nytKort = true;
+//				break;
+//			case "Chance19":
+//				gui.setChanceCard(getChancekort());
+//				gui.displayChanceCard();
+//				spiller.setGivKortVidere(2); 
+//				setChancekort();
+//				nytKort = true;
+//				break;
+//			case "Chance20":
+//				gui.setChanceCard(getChancekort());
+//				gui.displayChanceCard();
+//				spiller.setGivKortVidere(3); 
+//				setChancekort();
+//				nytKort = true;
+//				break;
 			}
+			
+			
+			
 		}	
 	}
 }

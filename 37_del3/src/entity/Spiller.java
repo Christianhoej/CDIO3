@@ -8,10 +8,9 @@ public class Spiller {
 
 	private int placering=0;
 	private Color farve;
-	private int givKortVidere;
 	private boolean fængsel;
 	private boolean frikort;
-	private boolean chancekort;
+	private boolean fødselsdag;
 	private boolean gratis;
 	
 	public Spiller(String navn) { 
@@ -21,8 +20,7 @@ public class Spiller {
 	public String getNavn() {
 		return navn;
 	}
-	public int kastTerning() {//Tur Klassen er måske overflødig 
-		// Har valgt at bruge kast istedet for Tur
+	public int kastTerning() {
 		Kast kast = new Kast();
 		kast.kastTerning();	
 		int terningeVærdi = kast.getTerningVærdi();
@@ -91,15 +89,7 @@ public class Spiller {
 	public boolean getFrikort(){
 		return frikort;
 	}
-	
-	public void setChancekort(boolean chancekort){
-		this.chancekort = chancekort;
-	}
-	
-	public boolean getChancekort(){
-		return chancekort;
-	}
-	
+		
 	public void opdaterPlacering(int placering){
 		this.placering += placering;
 			if((placering)>23){
@@ -120,16 +110,13 @@ public class Spiller {
 	
 	public boolean getGratis(){
 		return gratis;
+	}	
+	
+	public void setFødselsdag(boolean fødselsdag){
+		this.fødselsdag = fødselsdag;
 	}
 	
-	public void setGivKortVidere(int givKortVidere){
-		this.givKortVidere = givKortVidere;
+	public boolean getFødselsdag(){
+		return fødselsdag;
 	}
-	
-	public int getGivKortVidere(){
-		return givKortVidere;
-	}
-	
-	
-	
 }
