@@ -18,7 +18,7 @@ public class Spil {
 	public static void main(String[]args) {
 		//Her bør den del der skriver en fil laves.
 
- 
+
 		Bræt b = new Bræt();		
 		GUI gui = new GUI(b.lavBræt());
 		b.samlFelter(gui);
@@ -32,11 +32,11 @@ public class Spil {
 		Color [] farve = {Color.green, Color.blue, Color.red, Color.black};
 		Spiller[] spiller = new Spiller[antalSpillere];
 		Taber taber = new Taber();
-		
+
 		for (int i=0; i<s.length; i++) {
 			navn [i] = gui.getUserString("Indtast spiller " + (i+1) + "s navn");
 			car[i]= new GUI_Car(farve[i], farve[i], GUI_Car.Type.CAR, GUI_Car.Pattern.HORIZONTAL_GRADIANT);
-			
+
 			switch(antalSpillere) {
 			case 2:
 				s[i] = new GUI_Player(navn[i], 20, car[i]);
@@ -56,67 +56,62 @@ public class Spil {
 			spiller[i].ændrLikvideMidler(s[i].getBalance());
 		}
 
-		
+
 		taber.setTaber(false);
 		while(!taber.isTaber()) {
 			for(int i = 0; i < s.length; i++) {
-
-				//Hvis spiller er i fængsel
-				if(spiller[i].isFængsel()){
-					if(spiller[i].getFrikort()){
-						spiller[i].setFrikort(false);
+				if(spiller[i].isFængsel()){											// Hvis spiller er i fængsel
+					if(spiller[i].getFrikort()){									// Hvis spiller har get out of jail free kort, bruges det
+						spiller[i].setFrikort(false);								
 					}
 					else{
-						spiller[i].ændrLikvideMidler(-1);
+						spiller[i].ændrLikvideMidler(-1);							// Ellers betaler spiller 1M for at komme ud
 					}
-					spiller[i].setFængsel(false);
-					spiller[i].setChancekort(false);// Hvad laver vi her?
-					taber.harTabt(spiller[i].getLikvideMidler());
-				}
-				else{
-					gui.showMessage("Tryk OK for at slå med terningen");
-					
-					int terningeVærdi = spiller[i].kastTerning();
-					//int terningeVærdi = 1;
-					gui.setDie(terningeVærdi);
-					gui.showMessage(spiller[i].getNavn() + " slog " + terningeVærdi);
-					int forrigePlacering = spiller[i].getPlacering();
-					gui.getFields()[spiller[i].getPlacering()].setCar(s[i], false);
-					spiller[i].opdaterPlacering(terningeVærdi);// Opdaterer placering på spilleplade
-					gui.getFields()[spiller[i].getPlacering()].setCar(s[i], true);
-					
-					
-					int felt = spiller[i].getPlacering();
-					b.getSamlFelter()[felt].landOnField(spiller[i]);
-					for(int j =0; j<s.length;j++){
-						s[j].setBalance(spiller[j].getLikvideMidler());
-					}
-					if(spiller[i].getPlacering() < forrigePlacering){
-						spiller[i].ændrLikvideMidler(2);
-						s[i].setBalance(spiller[i].getLikvideMidler());
-					}
-					
-					
-//					if(felt != spiller[i].getPlacering()){
-//						b.samlFelter()[spiller[i].getPlacering()].landOnField(spiller[i]);
-//					}
-					taber.harTabt(spiller[i].getLikvideMidler());
-					
-					
-					
-					//Land on field -> something happens
-					//Spillerens beholdning opdateres
-					//Testes om den givne spiller har tabt
-
+					spiller[i].setFængsel(false);									// Spiller er ikke i fængsel længere
+					//spiller[i].setChancekort(false);// Hvad laver vi her?
+					taber.harTabt(spiller[i].getLikvideMidler());					// Tjekker om spiller har tabt.
+					if(taber.isTaber())
+						break;
 				}
 
+				gui.showMessage("Tryk OK for at slå med terningen");
+
+//				int terningeVærdi = spiller[i].kastTerning();						// Kaster terningen
+				int terningeVærdi = 3;
+				
+				gui.setDie(terningeVærdi);											// Viser terningen på pladen
+
+				//gui.showMessage(spiller[i].getNavn() + " slog " + terningeVærdi);
+
+				int forrigePlacering = spiller[i].getPlacering();					// Gemmer forrige placering
+				gui.getFields()[spiller[i].getPlacering()].setCar(s[i], false);		// Fjerner spillerens bil fra placering
+				spiller[i].opdaterPlacering(terningeVærdi);							// Opdaterer placering
+				gui.getFields()[spiller[i].getPlacering()].setCar(s[i], true);		// Sætter bilen på nye placering
+
+
+				spiller[i].PasserStart(forrigePlacering);							// Hvis spilleren har passeret start, modtager spilleren 2M
+				s[i].setBalance(spiller[i].getLikvideMidler());
+
+
+
+				int felt = spiller[i].getPlacering();								// Gemmer nuværende placering
+				b.getSamlFelter()[felt].landOnField(spiller[i]);					// Bruger logikken fra et felt
+				gui.getFields()[felt].setCar(s[i], false);							// Fjerner bilen fra daværende placering
+				gui.getFields()[spiller[i].getPlacering()].setCar(s[i], true);		// Sætter bilen på nye placering
+				
+				for(int j =0; j<s.length;j++){										// Opdaterer balancen hos alle spillere på spillepladen
+					s[j].setBalance(spiller[j].getLikvideMidler());
+				}
+
+				taber.harTabt(spiller[i].getLikvideMidler());						// Tjekker om spiller har tabt
 			}
 		}
 		Vinder vinder = new Vinder();
 		vinder.testHvemVinder(spiller);
 		//Jeg skal lige tjekke 
 	}
-	
-	
+
+
 
 }
+

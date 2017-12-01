@@ -62,6 +62,12 @@ public class Spiller {
 		return false;
 	}
 	
+	public void PasserStart(int feltNr){
+		if(getPlacering() < feltNr){								// Hvis spilleren har passeret start, modtager spilleren 2M
+			ændrLikvideMidler(2);
+		}
+	}
+	
 	public void setFarve(Color farve){
 		this.farve = farve;
 	}

@@ -38,8 +38,6 @@ public class Passiv extends AbstractFelter{
 	@Override
 	public void landOnField(Spiller spiller) {
 		gui.showMessage(toString());
-		System.out.println(toString());
-		gui.showMessage(toString());
 	}
 
 	//	public void opretFelt(){

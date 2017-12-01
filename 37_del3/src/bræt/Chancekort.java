@@ -3,25 +3,16 @@
  */
 package bræt;
 
-import java.io.BufferedReader; 
-import java.io.FileReader;
+//import java.io.BufferedReader;  
+//import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class Chancekort {
 	private String[] kort;
-	private String[] kort1;
 	
 	public Chancekort () {
-
-		try {
-			LavChanceKort("Dansk.txt");
-		} catch (IOException e) { 
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
+		LavChanceKort();
 	}
 
 /**LavChanceKort laver chancekort ud fra filen Dansk.txt hvor samtlige chancekort er opskrevet.
@@ -30,21 +21,64 @@ public class Chancekort {
  * @throws IOException
  */
 
+	public void LavChanceKort() { //Metode opretter 24 chancekort som Strings og gemmer i arrayet "kort"
 
-
-	public void LavChanceKort(String fil) throws IOException { //Metode opretter 24 chancekort som Strings og gemmer i arrayet "kort"
-
-		BufferedReader br;
-		br = new BufferedReader(new FileReader(fil));
-		ArrayList<String> linjer = new ArrayList<String>();
-		String currentLine = br.readLine();
-		while(currentLine != null) {
-			linjer.add(currentLine);
-			currentLine = br.readLine();
-		}
-		br.close();
-		// Convert to a String[] 
-		kort = linjer.toArray(new String[]{});
+//		BufferedReader br;
+//		br = new BufferedReader(new FileReader(fil));
+//		ArrayList<String> linjer = new ArrayList<String>();
+//		String currentLine = br.readLine();
+//		while(currentLine != null) {
+//			linjer.add(currentLine);
+//			currentLine = br.readLine();
+//		}
+//		br.close();
+//		// Convert to a String[] 
+//		kort = linjer.toArray(new String[]{});
+		
+		kort = new String[20];
+		
+		kort[0] = "Chance1#Giv dette kort til BILEN, og tag et chancekort mere. BIL - På din næste tur skal du drøne frem til et hvilket som helst ledigt felt og købe det. Hvis der ikk er nogen ledige felter, skal du købe et fra en anden spiller.";
+		
+		kort[1] = "Chance2#Ryk frem til START, og modtag M2.";
+		
+		kort[2] = "Chance3#Ryk op til 5 felter frem.";
+		
+		kort[3] = "Chance4#GRATIS FELT! Ryk frem til et orange felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.";
+		
+		kort[4] = "Chance5#Ryk 1 felt frem, eller tag et chancekort.";
+		
+		kort[5] = "Chance6#Giv dette kort til SKIBET, og tag et chancekort mere. SKIB - På din næste tur skal du sejle frem til et hvilket som helst ledigt felt og købet det. Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller.";
+		
+		kort[6] = "Chance7#Du har spist for meget slik. BETAL M2 til banken.";
+		
+		kort[7] = "Chance8#GRATIS FELT! Ryk frem til et orange eller grønt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.";
+		
+		kort[8] = "Chance9#GRATIS FELT! Ryk frem til et lyseblåt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.";
+		
+		kort[9] = "Chance10#Du løslades uden omkostninger. Behold dette kort, indtil du får brug for det.";
+		
+		kort[10] = "Chance11#Ryk frem til Strandpromenaden";
+		
+		kort[11] = "Chance12#Giv dette kort til KATTEN, og tag et chancekort mere. KAT: På din næte tur skal du liste dig hen på et hvilken som helst ledigt felt og købe det. Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller.";
+		
+		kort[12] = "Chance13#Giv dette kort til HUNDEN, og tag et chancekort mere. HUND: På din næste tur skal du hoppe hen på et hvilket som helst ledigt felt og købe det. Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller.";
+		
+		kort[13] = "Chance14#Det er din fødselsdag! Alle giver dig M1. TILLYKKE MED FØDSELDAGEN!";
+		
+		kort[14] = "Chance15#GRATIS FELT! Ryk frem til et pink eller mørkeblåt felt. Hivs det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.";
+		
+		kort[15] = "Chance16#Du har lavet alle dine lektier. MODTAG M2 fra banken.";
+		
+		kort[16] = "Chance17#GRATIS FELT! Ryk frem til et rødt felt. Hvis det er ledigt, får du det GRATIS! Eller skal du BETALE leje til ejeren.";
+		
+		kort[17] = "Chance18#GRATIS FELT! Ryk frem til SKaterparken for at lave det perfekte grind! Hvis ingen ejer den, får du den GRATIS! Ellers skal du BETALE leje til ejeren.";
+		
+		kort[18] = "Chance19#GRATIS FELT! Ryk frem til et lyseblåt eller rødt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.";
+		
+		kort[19] = "Chance20#GRATIS FELT! Ryk frem til et brunt eller gult felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.";
+		
+			
+		
 		
 		blandKort();
 	}
