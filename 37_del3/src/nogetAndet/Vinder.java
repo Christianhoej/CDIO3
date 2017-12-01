@@ -22,6 +22,7 @@ public class Vinder {
 				størsteLikvideBeholdning = tempLikvid;
 				vinderNrTotalBeholdning = tempAktiverTotal;
 
+				
 		}
 		else if(tempLikvid == størsteLikvideBeholdning) { //Hvis to likvide beholdninger er lige store
 			
