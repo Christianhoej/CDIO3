@@ -80,8 +80,6 @@ public class Spil {
 				spiller[i].PasserStart(forrigePlacering);								// Hvis spilleren har passeret start, modtager spilleren 2M
 				setGUIBalance(s[i], spiller[i]);						
 
-
-
 				int felt = spiller[i].getPlacering();									// Gemmer nuværende placering
 				landOnField(spiller[i]);												// Bruger logikken fra et felt
 				gui.getFields()[felt].setCar(s[i], false);								// Fjerner bilen fra daværende placering
@@ -132,13 +130,14 @@ public class Spil {
 	public void tjekFødselsdag(Spiller sp, Spiller[] spiller){
 		if(sp.getFødselsdag()){
 			sp.ændrLikvideMidler(spiller.length);
-		}
-		for(int i=0; i<spiller.length; i++){
-			if(sp !=spiller[i]){
-				spiller[i].ændrLikvideMidler(-1);
+			for(int i=0; i<spiller.length; i++){
+				if(sp !=spiller[i]){
+					spiller[i].ændrLikvideMidler(-1);
+				}
+				setGUIBalance(s[i], spiller[i]);
 			}
-			setGUIBalance(s[i], spiller[i]);
 		}
+		
 	}
 
 	public void tjekFængsel(Spiller spiller){
