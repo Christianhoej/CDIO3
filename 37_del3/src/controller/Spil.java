@@ -75,14 +75,14 @@ public class Spil {
 					break;
 				}
 				kastTerning(spiller[i], spiller, i, gui);   //Kaster terning
-				int felt = rykkerBrik(spiller[i], spiller, i, gui); // Bruger tur
+				int felt = tur(spiller[i], spiller, i, gui); // Bruger tur
 				if(taber.isTaber()){  // Tjekker om spiller har tabt
 					break;
 				}
 				
 				// Hvis spilleren har trukket et chancekort, har ændret placering og derfor køber en ny ejendom.
 				if(felt != spiller[i].getPlacering() && spiller[i].getPlacering() !=6){ // Hvis spillerens placering ikke er den samme, som før, og spilleren ikke er i fængsel
-					rykkerBrik(spiller[i], spiller, i, gui); // Bruger sin tur 
+					tur(spiller[i], spiller, i, gui); // Bruger sin tur 
 					if(taber.isTaber()){ // Tjekker om spiller har tabt
 						break;
 					}
@@ -102,7 +102,7 @@ public class Spil {
 	 * @param gui
 	 * @return felt - forrige placering
 	 */
-	public int rykkerBrik(Spiller spiller, Spiller[] sp, int i, GUI gui){		
+	public int tur(Spiller spiller, Spiller[] sp, int i, GUI gui){		
 		int felt = spiller.getPlacering();									// Gemmer nuværende placering
 		landOnField(spiller);		 										// Bruger logikken fra et felt
 		gui.getFields()[felt].setCar(s[i], false);								// Fjerner bilen fra daværende placering
