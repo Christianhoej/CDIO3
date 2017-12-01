@@ -1,8 +1,14 @@
-/** Klassen vinder bliver aktiveret når en spiller har tabt.
- * Klassen har metoder som finder spillets vinder.
+/** 
+ * 
  */
 package entity;
 
+/**
+ * Klassen vinder bliver aktiveret, når en spiller har tabt.
+ * Klassen har en metode som finder spillets vinder.
+ * @author Gruppe 37
+ *
+ */
 public class Vinder {
 	private String vindere;
 	private int vinderNrTotalBeholdning;
@@ -13,7 +19,7 @@ public class Vinder {
 	/**
 	 * Metoden tester spillernes likvideBeholdning. Spilleren med den største beholdning vinder.
 	 * @param spillerArray Array af spillere, fra 2-4
-	 * @return Returnerer spiller nummeret fra arrayet, på den spiller der vinder.
+	 * @return en string på med spillernummer/ne af vinder/ne
 	 */
 	public String testHvemVinder(Spiller[]spillerArray){
 		int tempAktiverTotal;

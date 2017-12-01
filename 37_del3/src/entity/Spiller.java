@@ -2,6 +2,11 @@ package entity;
 
 import java.awt.Color;
 
+/**
+ * Samler alt, som en spiller har med at gøre.
+ * @author Gruppe 37
+ *
+ */
 public class Spiller {
 	private String navn;
 	Aktivbeholdning aktivbeholdning = new Aktivbeholdning(0);
@@ -14,43 +19,66 @@ public class Spiller {
 	private boolean gratis;
 	
 	public Spiller(String navn) { 
-
-		this.navn = navn;	}
+		this.navn = navn;	
+	}
 
 	public String getNavn() {
 		return navn;
 	}
+	
+	/**
+	 * Kaster terningen
+	 * @return terningeværdien
+	 */
 	public int kastTerning() {
 		Kast kast = new Kast();
 		kast.kastTerning();	
 		int terningeVærdi = kast.getTerningVærdi();
 		return terningeVærdi;
 	}
+	
+	/**
+	 * Opdaterer spillerens likvide midler
+	 * @param likvideMidler
+	 */
 	public void ændrLikvideMidler(int likvideMidler) {
 		aktivbeholdning.addLikvideMidler(likvideMidler);
-
 	}
+	
+	/**
+	 * Opdaterer spillerens anlægs aktiver
+	 * @param anlægsAktivetsVærdi
+	 */
 	public void ændrAnlægsaktiverVærdi(int anlægsAktivetsVærdi) {
 		aktivbeholdning.addAnlægsAktiver(anlægsAktivetsVærdi);
 
 	}
+	
 	public int getLikvideMidler() {
 		return aktivbeholdning.getLikvideMidler();
 	}
+	
 	public int getAnlægsaktiver() {
 		return aktivbeholdning.getAnlægsAktiver();
 	}
+	
+	/**
+	 * Spiller køber en ejendom, og hans likvide midler og anlægsaktiver opdaterest.
+	 * @param feltNr
+	 * @param skødepris
+	 */
 	public void tilførSkøde(int feltNr, int skødepris) {
 		aktivbeholdning.købSkøde(feltNr);
 		ændrLikvideMidler(-skødepris);
 		ændrAnlægsaktiverVærdi(skødepris);
 	}
-	public void sælgSkøde(int feltNr, int skødepris) {
-		aktivbeholdning.sælgSkøde(feltNr);
-		ændrLikvideMidler(skødepris);
-		ændrAnlægsaktiverVærdi(-skødepris);
-	}
 
+	/**
+	 * Tjekker om en spiller ejer en bestemt ejendom
+	 * 
+	 * @param feltNr
+	 * @return true/false om spilleren ejer feltet
+	 */
 	public boolean ejerEjendom(int feltNr){
 		
 		for(int i=0; i<aktivbeholdning.getSkøder().length; i++){
@@ -61,12 +89,16 @@ public class Spiller {
 		return false;
 	}
 	
+	/**
+	 * Hvis spilleren har passeret start, modtager spilleren 2M
+	 * @param feltNr
+	 */
 	public void PasserStart(int feltNr){
-		if(getPlacering() < feltNr){								// Hvis spilleren har passeret start, modtager spilleren 2M
+		if(getPlacering() < feltNr){
 			ændrLikvideMidler(2);
 		}
 	}
-	
+
 	public void setFarve(Color farve){
 		this.farve = farve;
 	}
@@ -91,6 +123,10 @@ public class Spiller {
 		return frikort;
 	}
 		
+	/**
+	 * Opdaterer spillerens placering. Modulo bruges for at holde placeringen inden for antallet af felter
+	 * @param placering
+	 */
 	public void opdaterPlacering(int placering){
 		this.placering += placering;
 			if((placering)>23){

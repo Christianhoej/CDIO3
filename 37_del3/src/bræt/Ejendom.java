@@ -1,6 +1,4 @@
-/**Klaassen Ejendom nedarver fra AbstractFelter.
- * Klassen står for oprettelsen af ejendomsfelterne samt deres egenskaber på brættet.
- */
+
 package bræt;
 
 import entity.Spiller;
@@ -8,20 +6,27 @@ import gui_fields.GUI_Field;
 import gui_fields.GUI_Ownable;
 import gui_main.GUI;
 
+
+/**
+ * Klassen Ejendom nedarver fra AbstractFelter.
+ * Klassen står for oprettelsen af ejendomsfelterne samt deres individuelle pris og egenskaber på brættet.
+ * @author Gruppe 37
+ *
+ */
 public class Ejendom extends AbstractFelter {
 
 	private boolean tilsalg = true;
 	private int pris;
 	private Spiller spiller;
 	private String feltNavn;
-	//	private Color farve;
-	//	private GUI_Field[] felter;
+
 	private int makkerFeltnr;
 
-	/**Konstruktøren tager feltnr og gui.
-	 * Konstruktøren består af en switch case, med cases til hvert af ejendomsfelterne, hvor case
-	 * nummeret repræsenterer ejendomsfeltets placering på brættet.
-	 * Yderligere opretter den feltets navn og pris. 
+	/**
+	 * Konstruktøren tager parametrene feltnr og gui.
+	 * Konstruktøren består af en switch statement. Hver case har et feltnr, 
+	 * og opretter ud fra feltnummeret, feltets individuelle navn og pris, samt makkerfelt
+	 * 
 	 * @param feltnr
 	 * @param gui
 	 */
@@ -64,23 +69,19 @@ public class Ejendom extends AbstractFelter {
 	}
 
 
-	//	public GUI_Street opretFeltt(){
-	//		GUI_Street field = new GUI_Street(); 
-	//		field.setTitle(feltNavn);
-	//		felter[feltnr].setDescription("feltNavn");
-	//		felter[feltnr].setSubText(Integer.toString(pris));
-	//		felter[feltnr].setBackGroundColor(farve); // Light brown
-	//		return field;
-	//	}
-
 	/**
-	 * toString til udskrivning af besked, når spilleren lander på det bestemte felt.
+	 * toString til udskrivning af besked, når spilleren lander på feltet.
 	 */
 	@Override
 	public String toString(){
 		return "Du har landet på " + feltNavn;
 	}
 
+	
+	/**
+	 * setEjer setter ejeren til ejendomsfeltet, samt markerer selve feltet med spillerens farve
+	 * @param spiller
+	 */
 	public void setEjer(Spiller spiller) {
 		GUI_Field f = gui.getFields()[feltnr];
 		if(f instanceof GUI_Ownable){
@@ -94,22 +95,6 @@ public class Ejendom extends AbstractFelter {
 		return spiller;
 	}
 
-	public void fjernEjer(){
-		this.spiller = null;
-	}
-	
-	public void setFeltnr(int feltnr){
-		this.feltnr = feltnr;
-	}
-	
-	public int getFeltnr(){
-		return feltnr;
-	}
-
-	public int getPris() {
-		return pris;
-	}
-
 	public void setTilsalg(boolean tilsalg){
 		this.tilsalg = tilsalg;
 	}
@@ -121,9 +106,12 @@ public class Ejendom extends AbstractFelter {
 		return tilsalg;
 	}
 
-	/**Metoden bestemmer om spilleren køber, får feltet gratis, eller ved et chancekort skal overtage 
-	 * feltet, når spilleren lander på feltet.
+	/**
+	 * landOnField indeholder ejendommens felt logik.
+	 * Metoden tjekker om spilleren skal købe feltet, betale husleje, 
+	 * eller ved et chancekortfår feltet gratis 
 	 * 
+	 * @param Spiller
 	 */
 	@Override
 	public void landOnField(Spiller spiller){
@@ -133,14 +121,6 @@ public class Ejendom extends AbstractFelter {
 			gui.showMessage(toString() + " og får grunden gratis!");
 			spiller.tilførSkøde(feltnr, 0);
 			setTilsalg(false);
-			setEjer(spiller);
-			spiller.setGratis(false);
-		}
-//		// Hvis ejendommen ejes af en anden, og købes fri.
-		else if (spiller.getGratis() && !isTilsalg()) {
-			gui.showMessage(toString() + " og køber det fra " + getEjer().getNavn()+ "for " + pris+"M");
-			spiller.tilførSkøde(feltnr, pris);
-			getEjer().sælgSkøde(feltnr, pris);
 			setEjer(spiller);
 			spiller.setGratis(false);
 		}
@@ -154,6 +134,7 @@ public class Ejendom extends AbstractFelter {
 		}
 		// Hvis ejendommen ejes, og spiller skal betale husleje.
 		else if(!isTilsalg()&& getEjer() != spiller){
+			// Hvis ejeren af feltet, også ejer det andet felt i samme farve.
 			if(getEjer().ejerEjendom(makkerFeltnr)){
 				gui.showMessage(toString() + ". Da " + getEjer().getNavn() +" også ejer det andet felt af samme farve, skal "+ spiller.getNavn() +" betale dobbelt pris," + (2*pris) + "M til " + getEjer().getNavn());
 				getEjer().ændrLikvideMidler(2*pris);

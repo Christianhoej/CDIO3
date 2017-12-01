@@ -1,7 +1,8 @@
 package bræt;
 
-import entity.Spiller;
+import entity.Spiller; 
 import gui_main.GUI;
+
 
 public abstract class  AbstractFelter {
 

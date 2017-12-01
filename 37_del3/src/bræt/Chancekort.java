@@ -1,12 +1,12 @@
-/**Klassen Chancekort genererer chancekort, samt har metoder til at trække og blande kort.
- * 
- */
+
 package bræt;
 
-//import java.io.BufferedReader;  
-//import java.io.FileReader;
-import java.io.IOException;
-//import java.util.ArrayList;
+
+/**
+ * Klassen Chancekort genererer chancekort, samt har metoder til at trække og blande kort.
+ * 
+ * @author Gruppe 37
+ */
 
 public class Chancekort {
 	private String[] kort;
@@ -15,13 +15,11 @@ public class Chancekort {
 		LavChanceKort();
 	}
 
-	/**LavChanceKort laver chancekort ud fra filen Dansk.txt hvor samtlige chancekort er opskrevet.
-	 * Metoden læser filen med Bufferreader og ........
-	 * @param fil
-	 * @throws IOException
-	 */
-
-	public void LavChanceKort() { //Metode opretter 24 chancekort som Strings og gemmer i arrayet "kort"
+/**
+ * LavChanceKort gemmer et String array af 16 chancekortchancekort
+ * 
+ */
+	public void LavChanceKort() { 
 
 		kort = new String[16];
 		kort[0] = "Chance1#Ryk frem til START, og modtag M2.";
@@ -40,15 +38,11 @@ public class Chancekort {
 		kort[13] = "Chance14#GRATIS FELT! Ryk frem til SKaterparken for at lave det perfekte grind! Hvis ingen ejer den, får du den GRATIS! Ellers skal du BETALE leje til ejeren.";
 		kort[14] = "Chance15#GRATIS FELT! Ryk frem til et lyseblåt eller rødt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.";
 		kort[15] = "Chance16#GRATIS FELT! Ryk frem til et brunt eller gult felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.";
-		//kort[16] = "Chance17#Giv dette kort til BILEN, og tag et chancekort mere. BIL - På din næste tur skal du drøne frem til et hvilket som helst ledigt felt og købe det. Hvis der ikk er nogen ledige felter, skal du købe et fra en anden spiller.";
-		//kort[17] = "Chance18#Giv dette kort til SKIBET, og tag et chancekort mere. SKIB - På din næste tur skal du sejle frem til et hvilket som helst ledigt felt og købet det. Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller.";
-		//kort[18] = "Chance19#Giv dette kort til KATTEN, og tag et chancekort mere. KAT: På din næte tur skal du liste dig hen på et hvilken som helst ledigt felt og købe det. Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller.";
-		//kort[19] = "Chance20#Giv dette kort til HUNDEN, og tag et chancekort mere. HUND: På din næste tur skal du hoppe hen på et hvilket som helst ledigt felt og købe det. Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller.";
 
 		blandKort();
 	}
-	/**Metoden trækker via et for-loop det øverste kort i bunken
-	 * 
+	/**
+	 * Metoden trækker via et for-loop det øverste kort i bunken
 	 * @return Returnerer kortet der bliver trukket.
 	 */
 	public String traekKort(){
@@ -60,7 +54,8 @@ public class Chancekort {
 		return kort1;
 	}
 
-	/**Metoden blander bunken af chancekort så de ikke ligger i den rækkefølge de er skrevet i.
+	/**
+	 * Metoden blander bunken af chancekort, så de ikke ligger i den rækkefølge, de er skrevet i.
 	 * Giver kortet en tilfældig placering via Math.random
 	 */
 	public void blandKort(){

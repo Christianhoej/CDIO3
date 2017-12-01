@@ -1,30 +1,32 @@
-/** Chance klassen nedarver atributter fra AbstracFelter Klassen.
- * Chance klassen udfører de forskellige chancekorts handlinger, og udskriver chancekortene på Gui'en
- */
+
 package bræt;
 
-import entity.Spiller; 
+import entity.Spiller;  
 import gui_main.GUI;
+
+
+/**
+ * Chance klassen nedarver attributter fra AbstracFelter klassen.
+ * Chance klassen udfører chancekortenes handlinger, og udskriver chancekortene dem på Gui'en
+ *
+ * @author Gruppe 37
+ *
+ */
 
 public class Chance extends AbstractFelter {
 
 	private Chancekort chance = new Chancekort();
 	private String chanceBeskrivelse;
 
-	/**Konstruktøren tager feltnr og giu .............
+	/** 
+	 * Konstruktøren tager feltnummer og gui'en som parametre.
 	 * 
 	 * @param feltnr
 	 * @param gui
 	 */
 	public Chance(int feltnr, GUI gui){
 		super(feltnr, gui);
-		//		chance.blandKort();
 	}
-
-	//	@Override
-	//	public void opretFelt(){
-	//		felter[feltnr] = new GUI_Chance();
-	//	}
 
 	@Override
 	public String toString(){
@@ -39,6 +41,13 @@ public class Chance extends AbstractFelter {
 		return chanceBeskrivelse.split("#")[1];
 	}
 
+	
+	/**
+	 * landOnField overrider metoden fra Abstractfelter.
+	 * Denne metode indeholde felt logikken for chance.
+	 * 
+	 * @param Spiller
+	 */
 	@Override
 	public void landOnField(Spiller spiller) {
 

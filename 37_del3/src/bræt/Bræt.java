@@ -1,7 +1,7 @@
 package bræt;
 
 
-import java.awt.Color; 
+import java.awt.Color;  
 
 import gui_fields.GUI_Chance;
 import gui_fields.GUI_Field;
@@ -10,21 +10,18 @@ import gui_fields.GUI_Refuge;
 import gui_fields.GUI_Start;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
-//import desktop_fields.*;
+
 /**
  * Opretter spillepladen til Matador Junior
  * @author Gruppe 37
  *
  */
-
-
-
 public class Bræt {	
 	private GUI_Field[] fields = new GUI_Field[24];
 	private AbstractFelter[] felter = new AbstractFelter[24];
 	/**
 	 * Laver alle felterne til spillepladen
-	 * @return Felterne til spillepladen i et array
+	 * @return GUI_Field[] - Felterne til spillepladen i et array
 	 */
 	
 	public GUI_Field[] lavBræt() {
@@ -154,6 +151,12 @@ public class Bræt {
 			
 		return fields;
 	}
+	
+	
+	/**
+	 * Samler alle felterne i et array.
+	 * @param gui
+	 */
 	
 	public void samlFelter(GUI gui){
 		felter[0] = new Start(0, gui); 

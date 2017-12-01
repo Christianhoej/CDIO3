@@ -3,8 +3,15 @@ package bræt;
 import entity.Spiller; 
 import gui_main.GUI;
 
+
+
+/**
+ * Klassen Fængsel nedarver fra AbstractFelter.
+ * @author Gruppe 37
+ *
+ */
 public class Fængsel extends AbstractFelter {
-	//Konstruktør kan laves
+	
 	public Fængsel(int feltnr, GUI gui){
 		super(feltnr, gui);
 	}
@@ -18,6 +25,11 @@ public class Fængsel extends AbstractFelter {
 		spiller.setPlacering(6);
 	}
 
+	/**
+	 * landOnFiels indeholder fængselfeltets spil logik
+	 * 
+	 * @param Spiller
+	 */
 	@Override
 	public void landOnField(Spiller spiller) {
 		gui.showMessage(toString());

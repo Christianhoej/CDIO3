@@ -1,8 +1,11 @@
-/**Klassen Kast er der udviklet metoder til oprettelse af terninger, 
- * samt metoder som samler summen afværdierne af terningerne som fås fra Terning-klassen.
- * 
- */
 package entity;
+
+/**
+ * Klassen Kast er kastes der med en terning
+ *
+ * @author Gunn
+ *
+ */
 
 public class Kast {
 	private int terningVærdi;

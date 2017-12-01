@@ -1,8 +1,16 @@
-/**Terning-klassen anvendes til at angive en værdi for en terning. 
+/** Terning-klassen anvendes til at angive en værdi for en terning. 
  * Klassen er kodet således at den opretter én seks-siddet terning med værdi fra 1-6
  */
 package entity;
 
+
+/**
+ * Terning-klassen anvendes til at angive en værdi for en terning.
+ * Klassen er kodet således, at dens default konstroktør opretter én seks-siddet terning med værdi fra 1-6.
+ * Dog kan man selv vælge minimums- og maximumsværdierne
+ * @author Gruppe 37
+ *
+ */
 public class Terning {
 
 	private int værdi;
@@ -18,6 +26,9 @@ public class Terning {
 		this.minVærdi = minVærdi;
 	}
 	
+	/**
+	 * Default konstroktør
+	 */
 	public Terning(){
 	}
 	
