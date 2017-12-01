@@ -35,7 +35,7 @@ public class Spil {
 
 		for (int i=0; i<s.length; i++) {
 			navn[i] = gui.getUserString("Indtast spiller " + (i+1) + "s navn");
-			if(navn.equals("")){
+			if(navn[i].equals("")){
 				navn[i] = "Spiller " + (i+1);
 			}
 			car[i]= new GUI_Car(farve[i], farve[i], GUI_Car.Type.CAR, GUI_Car.Pattern.HORIZONTAL_GRADIANT);
