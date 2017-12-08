@@ -2,10 +2,8 @@ package test;
 
 import static org.junit.Assert.assertEquals; 
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import entity.Aktivbeholdning;
 import entity.Spiller;
 import entity.Taber;
@@ -24,9 +22,6 @@ public class TestCase {
 		vinderTest = new Vinder();
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
 
 	/**Test af addLikvidemidler
 	 * addLikvideMidler(int likvideMidler)
@@ -49,9 +44,9 @@ public class TestCase {
 	 */
 	@Test
 	public void testTaber() {
-		taberTest.harTabt(10);
+		taberTest.harTabt(-10);
 		boolean actual = taberTest.isTaber();
-		boolean expected = false;
+		boolean expected = true;
 		assertEquals(actual, expected);
 	}
 
@@ -71,7 +66,37 @@ public class TestCase {
 		String expected = spiller2.getNavn()+" har vundet";
 		assertEquals(actual, expected);
 	}
+	
+	@Test
+	public void testTestHvemVinder1() {
+		Spiller spiller1 = new Spiller("Spiller 1") ;
+		Spiller spiller2 = new Spiller("Spiller 2");
+		Spiller spiller3 = new Spiller("Spiller 3");
+		spiller1.ændrLikvideMidler(21);
+		spiller2.ændrLikvideMidler(21);
+		spiller3.ændrLikvideMidler(21);
+		spiller1.ændrAnlægsaktiverVærdi(20);
+		spiller2.ændrAnlægsaktiverVærdi(20);
+		spiller3.ændrAnlægsaktiverVærdi(21);
+		String actual = vinderTest.testHvemVinder(new Spiller[] {spiller1, spiller2, spiller3});
+		String expected = "Spiller 3 har vundet";
+		assertEquals(actual, expected);
+	}
 
+	@Test
+	public void testTestHvemVinder2() {
+		Spiller spiller1 = new Spiller("Spiller 1");
+		Spiller spiller2 = new Spiller("Spiller 2");
+		Spiller spiller3 = new Spiller("Spiller 3");
+		Spiller spiller4 = new Spiller("Spiller 4");
+		spiller1.ændrLikvideMidler(20);
+		spiller2.ændrLikvideMidler(21);
+		spiller3.ændrLikvideMidler(21);
+		spiller4.ændrLikvideMidler(21);
+		String actual = vinderTest.testHvemVinder(new Spiller[] {spiller1, spiller2, spiller3, spiller4});
+		String expected = spiller2.getNavn()+ " og 3 og 4 har vundet";
+		assertEquals(actual, expected);
+	}
 
 
 }

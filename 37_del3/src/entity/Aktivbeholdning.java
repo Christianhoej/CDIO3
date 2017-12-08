@@ -20,7 +20,7 @@ public class Aktivbeholdning {
 	private int likvideMidler = 0;
 	private int[]skøder = new int[24];
 
-	/**
+	/** 
 	 * Konstruktør til Aktivbeholdning
 	 * @param likvideMidler - Spillerens likvide midler
 	 */
@@ -41,6 +41,7 @@ public class Aktivbeholdning {
 	public int getAnlægsAktiver() {
 		return anlægsAktiver;
 	}
+	
 	/**
 	 * Tilføjer likvide midler til spillernes beholdning
 	 * 
@@ -53,6 +54,7 @@ public class Aktivbeholdning {
 	public int getLikvideMidler() {
 		return likvideMidler;
 	}
+	
 	/**
 	 * Metode til at tilegne skøder til bestemte felter
 	 * @param feltNr Angiver hvilket felt på brættet
@@ -60,11 +62,11 @@ public class Aktivbeholdning {
 	public void købSkøde(int feltNr) {
 		skøder[feltNr] = feltNr;
 	}
+	
 	/**
 	 * Metode til at afgive skøder fra bestemte felter
 	 * @param feltNr
 	 */
-	
 	public int[] getSkøder(){
 		return skøder;
 	}

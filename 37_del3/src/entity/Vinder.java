@@ -30,7 +30,7 @@ public class Vinder {
 			tempAktiverTotal = spillerArray[i].getAnlægsaktiver() + spillerArray[i].getLikvideMidler();
 
 			if(tempLikvid>størsteLikvideBeholdning) { //Hvis en likvidbeholdning er større end en anden
-				vindere = (i+1) + " ";
+				vindere = (i+1)+" ";
 				størsteLikvideBeholdning = tempLikvid;
 				vinderNrTotalBeholdning = tempAktiverTotal;
 			}
@@ -43,7 +43,7 @@ public class Vinder {
 					vinderNrTotalBeholdning = tempAktiverTotal;
 				}
 				else if(tempAktiverTotal == vinderNrTotalBeholdning)
-					vindere += " og " + (i+1);
+					vindere += "og " + (i+1) +" ";
 			}
 		}
 		return "Spiller " + vindere + "har vundet";

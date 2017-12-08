@@ -34,7 +34,7 @@ public class Chance extends AbstractFelter {
 	}
 
 	public void setChancekort(){
-		chanceBeskrivelse = chance.traekKort();
+		this.chanceBeskrivelse = chance.traekKort();
 	}
 
 	public String getChancekort(){

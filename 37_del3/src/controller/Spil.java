@@ -22,7 +22,6 @@ public class Spil {
 	GUI_Car[] car = new GUI_Car[4];
 	String [] navn = new String[4];
 	Color [] farve = {Color.blue, Color.red, Color.cyan, Color.orange};
-	Spiller[] spiller;
 	Taber taber = new Taber();
 	Bræt b = new Bræt();		
 

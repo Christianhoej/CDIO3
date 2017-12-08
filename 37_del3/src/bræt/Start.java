@@ -13,7 +13,6 @@ import gui_main.GUI;
 public class Start extends AbstractFelter {
 
 	private final int startbonus = 2;
-	private int feltnr;
 	
 	public Start (int feltnr, GUI gui) {
 		super(feltnr, gui); 

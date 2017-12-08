@@ -43,7 +43,7 @@ public class Spiller {
 	 */
 	public void ændrLikvideMidler(int likvideMidler) {
 		aktivbeholdning.addLikvideMidler(likvideMidler);
-	}
+	} 
 	
 	/**
 	 * Opdaterer spillerens anlægs aktiver
@@ -104,7 +104,7 @@ public class Spiller {
 	}
 	
 	public Color getFarve(){
-		return farve;
+		return this.farve;
 	}
 	
 	public void setFængsel(boolean fængsel){
@@ -129,7 +129,7 @@ public class Spiller {
 	 */
 	public void opdaterPlacering(int placering){
 		this.placering += placering;
-			if((placering)>23){
+			if((this.placering)>23){
 				this.placering = placering%24;
 			}
 	}
