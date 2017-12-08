@@ -9,6 +9,9 @@ package bræt;
  */
 
 public class Chancekort {
+	/**
+	 * Erklæring String array, kaldet kort.
+	 */
 	private String[] kort;
 
 	public Chancekort () {
@@ -16,8 +19,9 @@ public class Chancekort {
 	}
 
 /**
- * LavChanceKort gemmer et String array af 16 chancekortchancekort
+ * Instantiering af string[], kort
  * 
+ * LavChanceKort gemmer et String array af 16 chancekortchancekort
  */
 	public void LavChanceKort() { 
 
@@ -56,7 +60,7 @@ public class Chancekort {
 
 	/**
 	 * Metoden blander bunken af chancekort, så de ikke ligger i den rækkefølge, de er skrevet i.
-	 * Giver kortet en tilfældig placering via Math.random
+	 * Metoden giver kortet en tilfældig placering i bunken via Math.random
 	 */
 	public void blandKort(){
 		String[] kort1 = kort;

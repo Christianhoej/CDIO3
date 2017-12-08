@@ -5,12 +5,10 @@ import entity.Spiller;
 import gui_main.GUI;
 
 
-/**
- * Chance klassen nedarver attributter fra AbstracFelter klassen.
- * Chance klassen udfører chancekortenes handlinger, og udskriver chancekortene dem på Gui'en
- *
+/**Chance klassen nedarver attributter fra AbstracFelter klassen.
+ * Chance klassen udfører chancekortenes handlinger, og udskriver chancekortene på Gui'en
+ * 
  * @author Gruppe 37
- *
  */
 
 public class Chance extends AbstractFelter {
