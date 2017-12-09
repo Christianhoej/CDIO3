@@ -9,7 +9,6 @@ import gui_main.GUI;
  * De passive felter har ingen egenskaber, og ses som "frie" felter.
  * Klassen nedarver fra AbstractFelter
  * @author Gruppe 37
- *
  */
 
 public class Passiv extends AbstractFelter{
@@ -43,7 +42,6 @@ public class Passiv extends AbstractFelter{
 
 	/**
 	 * Metode som udskriver teksten fra toString, for de passive felter.
-	 * 
 	 *  @param Spiller
 	 */
 	@Override

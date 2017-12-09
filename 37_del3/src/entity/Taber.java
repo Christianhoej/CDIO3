@@ -18,7 +18,7 @@ public class Taber {
 	}
 	
 	/**
-	 * harTabt tester om spillerens beholdningsværdi er mindre end den angivne grænse. 
+	 * harTabt tester om spillerens beholdningsværdi er mindre end den angivne grænse (0) . 
 	 * @param beholdningsværdi Spillerens beholdnigsværdi.
 	 */
 	

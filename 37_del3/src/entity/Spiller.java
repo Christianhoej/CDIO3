@@ -38,7 +38,8 @@ public class Spiller {
 	}
 	
 	/**
-	 * Opdaterer spillerens likvide midler
+	 * Opdaterer spillerens likvide midler 
+	 * via - aktivbeholdning.addLikvidemidler
 	 * @param likvideMidler
 	 */
 	public void ændrLikvideMidler(int likvideMidler) {
@@ -124,7 +125,7 @@ public class Spiller {
 	}
 		
 	/**
-	 * Opdaterer spillerens placering. Modulo bruges for at holde placeringen inden for antallet af felter
+	 * Opdaterer spillerens placering. Modulos bruges for at holde placeringen inden for antallet af felter
 	 * @param placering
 	 */
 	public void opdaterPlacering(int placering){

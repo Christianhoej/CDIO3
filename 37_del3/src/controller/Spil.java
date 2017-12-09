@@ -44,10 +44,12 @@ public class Spil {
 			if(navn[i].equals("")){  // hvis der ikke er indtastet noget, sættes et standard spillernavn
 				navn[i] = "Spiller " + (i+1);
 			}
-			car[i]= new GUI_Car(farve[i], farve[i], GUI_Car.Type.CAR, GUI_Car.Pattern.HORIZONTAL_GRADIANT); //Opretter bilerne
 
+			//Opretter bilerne
+			car[i]= new GUI_Car(farve[i], farve[i], GUI_Car.Type.CAR, GUI_Car.Pattern.HORIZONTAL_GRADIANT); 
 
 			// Afgører startbalancen for spillerne og tilføjer dem til spillepladen
+			//Bliver afgjort efter antalSpillere
 			switch(antalSpillere) {
 			case 2:
 				s[i] = new GUI_Player(navn[i], 20, car[i]);
@@ -66,7 +68,7 @@ public class Spil {
 			spiller[i].ændrLikvideMidler(s[i].getBalance());
 		}
 
-		
+
 		while(!taber.isTaber()) { // Mens ingen har tabt, køres spillet
 			for(int i = 0; i < spiller.length; i++) {
 				tjekFængsel(spiller[i]); // Tjekker om spilleren sidder i fængsel
@@ -78,7 +80,7 @@ public class Spil {
 				if(taber.isTaber()){  // Tjekker om spiller har tabt
 					break;
 				}
-				
+
 				// Hvis spilleren har trukket et chancekort, har ændret placering og derfor køber en ny ejendom.
 				if(felt != spiller[i].getPlacering() && spiller[i].getPlacering() !=6){ // Hvis spillerens placering ikke er den samme, som før, og spilleren ikke er i fængsel
 					tur(spiller[i], spiller, i, gui); // Bruger sin tur 
@@ -114,7 +116,7 @@ public class Spil {
 		taber.harTabt(spiller.getLikvideMidler());
 		return felt;
 	}
-	
+
 	/**
 	 * kastTerning kaster med terningen og rykker brikken det fram, som terningen viser
 	 * @param spiller
@@ -123,7 +125,7 @@ public class Spil {
 	 * @param gui
 	 */
 	public void kastTerning(Spiller spiller, Spiller[] sp, int i, GUI gui){
-		
+
 		gui.showMessage("Tryk OK for at slå med terningen");
 		int terningVærdi = spiller.kastTerning();							// Kaster terningen
 		gui.setDie(terningVærdi);											// Viser terningen på pladen
@@ -171,7 +173,7 @@ public class Spil {
 		}
 
 	}
-	
+
 	/**
 	 * Tjekker om spiller er i fængsel, og i så fald, om han har et frikot eller skal betale for løsladelse
 	 * @param spiller
