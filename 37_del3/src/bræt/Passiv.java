@@ -25,6 +25,8 @@ public class Passiv extends AbstractFelter{
 		switch(feltnr){
 		case 6: feltNavn = "på besøg"; break;
 		case 12: feltNavn = "gratis parkering"; break;
+		default:
+			break;
 		}
 	}
 	/**

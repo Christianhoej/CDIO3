@@ -66,6 +66,8 @@ public class Ejendom extends AbstractFelter {
 		case 23: feltNavn = "Stranpromenaden"; pris = 5; makkerFeltnr = 22;
 		break;
 		// Har valgt ikke at bruge default, fordi vi ved, at det ikke er en mulighed, at vi kommer dertil.
+		default:
+			break;
 		}
 	}
 

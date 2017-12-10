@@ -35,7 +35,7 @@ public class Spil {
 		String antal = gui.getUserSelection("Hvor mange spillere skal i være?", "2","3","4");
 		int antalSpillere = Integer.parseInt(antal);
 		Spiller[] spiller = new Spiller[antalSpillere];
-
+ 
 
 		// Tilføjer spillerne til spillet
 		for (int i=0; i<spiller.length; i++) {
@@ -57,6 +57,8 @@ public class Spil {
 				break;
 			case 4:
 				s[i] = new GUI_Player(navn[i], 16, car[i]);
+				break;
+			default:
 				break;
 			}
 			gui.addPlayer(s[i]);

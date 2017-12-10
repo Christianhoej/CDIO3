@@ -53,7 +53,7 @@ public class Chance extends AbstractFelter {
 
 		String felt;
 		gui.showMessage(toString());
-		setChancekort(); 
+		setChancekort();  
 		boolean nytKort=true;
 		while(nytKort==true){
 			nytKort = false;
@@ -167,6 +167,8 @@ public class Chance extends AbstractFelter {
 				felt = gui.getUserSelection("Hvilket lyseblåt felt vil du rykke frem til?", "1", "2", "10", "11");
 				spiller.setPlacering(Integer.parseInt(felt));
 				spiller.setGratis(true);
+				break;
+			default:
 				break;
 			}
 		}	
