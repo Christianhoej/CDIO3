@@ -13,7 +13,7 @@ import gui_main.GUI;
 
 /**
  * Opretter spillepladen til Matador Junior
- * Både visuelt, og med egenskaber for hvert felt
+ * Både visuelt, og med egenskaber for hvert felt (Tekst, type, plads)
  * @author Gruppe 37
  */
 public class Bræt {	
