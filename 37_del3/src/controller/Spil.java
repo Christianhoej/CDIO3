@@ -93,7 +93,7 @@ public class Spil {
 		Vinder vinder = new Vinder();
 		gui.displayChanceCard((vinder.testHvemVinder(spiller))); // Finder vinderen
 
-	}
+	}  //Metode Start slutter
 
 	/**
 	 * rykkerBrik flytter runt på brikken, og bruger landOnField til felt logikken
@@ -106,7 +106,7 @@ public class Spil {
 	public int tur(Spiller spiller, Spiller[] sp, int i, GUI gui){		
 		int felt = spiller.getPlacering();									// Gemmer nuværende placering
 		landOnField(spiller);		 										// Bruger logikken fra et felt
-		gui.getFields()[felt].setCar(s[i], false);								// Fjerner bilen fra daværende placering
+		gui.getFields()[felt].setCar(s[i], false);							// Fjerner bilen fra daværende placering
 		gui.getFields()[spiller.getPlacering()].setCar(s[i], true);			// Sætter bilen på nye placering
 		if(!spiller.isFængsel()){
 			spiller.PasserStart(felt);

@@ -4,6 +4,7 @@ import java.awt.Color;
 
 /**
  * Samler alt, som en spiller har med at gøre.
+ * Opdaterer placering, likvidemidler og hvilke ejendomme han ejer
  * @author Gruppe 37
  *
  */
