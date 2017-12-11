@@ -1,12 +1,6 @@
  
 package entity;
 
-
-/**
- * 
- * 
- */
-
 /**
  * Klassen Aktivbeholdning indeholder metoder til at opdatere en spillers beholdning.
  * I klassen findes metoder til både spillernes likvide midler, samt spillernes beholdning af aktiver.

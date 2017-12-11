@@ -156,6 +156,7 @@ public class Bræt {
 	
 	/**Samler alle felterne i et array.
 	 * Bruger den til at lave spillepladen
+	 * Polymorfisk kald: Laver et array af super-klassen, og objekter af de nedarvede klasser
 	 * @param gui
 	 */
 	

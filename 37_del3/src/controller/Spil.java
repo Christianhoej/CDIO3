@@ -11,6 +11,8 @@ import gui_main.GUI;
 
 
 /**
+ * Den klasse der omsætter brugerens indtastninger
+ * Styrer afviklingen af spillet
  * Spil klassen indeholder spillelogikken. 
  * 
  * @author Gruppe 37
