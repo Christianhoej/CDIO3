@@ -3,8 +3,8 @@ package entity;
 /**
  * Klassen Kast er kastes der med en terning
  *
- * @author Gunn
- *
+ * @author Gruppe 37
+ * 
  */
 
 public class Kast {

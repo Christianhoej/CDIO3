@@ -11,17 +11,17 @@ import entity.Vinder;
 
 public class TestCase {
 
-	Taber taberTest;
-	Aktivbeholdning beholdningTest;
+	Taber taber;
+	Aktivbeholdning konto;
 	Vinder vinderTest;
 
 	@Before
 	public void setUp() throws Exception {
-		beholdningTest = new Aktivbeholdning(100);
-		taberTest = new Taber();
+		konto = new Aktivbeholdning(0);
+		taber = new Taber();
 		vinderTest = new Vinder();
 	}
-
+ 
 
 	/**Test af addLikvidemidler
 	 * addLikvideMidler(int likvideMidler)
@@ -30,12 +30,41 @@ public class TestCase {
 	 * Negativ: tilføjer 20 til likvidemidler, expected 110, testen går ikke igennem da actual=120
 	 */
 	@Test
-	public void testAddLikvidemidler() {
-		beholdningTest.addLikvideMidler(10);
-		int actual = beholdningTest.getLikvideMidler();
-		int expected = 110;
+	public void testLikvid() {
+		konto.addLikvideMidler(10);
+		int actual = konto.getLikvideMidler();
+		int expected = 10;
 		assertEquals(actual, expected);
 	}
+	
+	@Test
+	public void testAktiver() {
+		konto.addAnlægsAktiver(10);
+		int actual = konto.getAnlægsAktiver();
+		int expected = 10;
+		assertEquals(actual, expected);
+	}
+	
+	@Test
+	public void testSkøde() {
+		konto.købSkøde(4);
+		konto.købSkøde(10);
+		konto.købSkøde(23);
+		int[] actual = konto.getSkøder();
+		int[] expected = new int[24];
+		for(int i=0; i<expected.length;i++){
+			if(i==4)
+				expected[i]=i;
+			else if(i==10)
+				expected[i]=i;
+			else if(i==23)
+				expected[i]=i;
+		}
+		for(int i=0; i<actual.length; i++){
+			assertEquals(actual[i],expected[i]);
+		}
+	}
+
 
 	/**Test af harTabt metoden.
 	 * harTabt(beholdningsværdi), 
@@ -44,9 +73,17 @@ public class TestCase {
 	 */
 	@Test
 	public void testTaber() {
-		taberTest.harTabt(-10);
-		boolean actual = taberTest.isTaber();
+		taber.harTabt(-10);
+		boolean actual = taber.isTaber();
 		boolean expected = true;
+		assertEquals(actual, expected);
+	}
+	
+	@Test
+	public void testIkkeTaber() {
+		taber.harTabt(10);
+		boolean actual = taber.isTaber();
+		boolean expected = false;
 		assertEquals(actual, expected);
 	}
 

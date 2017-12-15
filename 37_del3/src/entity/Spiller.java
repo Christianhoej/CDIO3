@@ -13,7 +13,7 @@ public class Spiller {
 
 	private int placering=0;
 	private Color farve;
-	private boolean fængsel;
+	private boolean fængsel; 
 	private boolean frikort;
 	private boolean fødselsdag;
 	private boolean gratis;

@@ -19,8 +19,4 @@ public abstract class  AbstractFelter {
 	
 	
 	public abstract void landOnField(Spiller spiller);
-	
-	
-	
-	
 }

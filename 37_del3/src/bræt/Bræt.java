@@ -154,7 +154,7 @@ public class Bræt {
 	
 	
 	/**
-	 * Samler alle felterne i et array.
+	 * Samler alle felterne i et array ved et polymorphiskt kald.
 	 * @param gui
 	 */
 	

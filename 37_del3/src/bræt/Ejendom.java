@@ -108,7 +108,7 @@ public class Ejendom extends AbstractFelter {
 	public boolean isTilsalg(){
 		return tilsalg;
 	}
-
+ 
 	/**
 	 * landOnField indeholder ejendommens felt logik.
 	 * Metoden tjekker om spilleren skal købe feltet, betale husleje, 

@@ -1,6 +1,6 @@
 package controller;
 
-import java.awt.Color;
+import java.awt.Color; 
 import bræt.Bræt;
 import entity.Spiller;
 import entity.Taber;
@@ -113,7 +113,7 @@ public class Spil {
 		}
 		tjekFødselsdag(spiller, sp);
 		setGUIBalance(s, sp);
-		taber.harTabt(spiller.getLikvideMidler());
+		taber.harTabt(spiller.getLikvideMidler()); 
 		return felt;
 	}
 	
