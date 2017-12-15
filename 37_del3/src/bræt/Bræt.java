@@ -13,14 +13,15 @@ import gui_main.GUI;
 
 /**
  * Opretter spillepladen til Matador Junior
+ * Både visuelt, og med egenskaber for hvert felt (Tekst, type, plads)
  * @author Gruppe 37
- *
  */
 public class Bræt {	
 	private GUI_Field[] fields = new GUI_Field[24];
 	private AbstractFelter[] felter = new AbstractFelter[24];
 	/**
 	 * Laver alle felterne til spillepladen
+	 * Plads 0 i arrayet er 1. felt på pladen.
 	 * @return GUI_Field[] - Felterne til spillepladen i et array
 	 */
 	
@@ -153,8 +154,9 @@ public class Bræt {
 	}
 	
 	
-	/**
-	 * Samler alle felterne i et array.
+	/**Samler alle felterne i et array.
+	 * Bruger den til at lave spillepladen
+	 * Polymorfisk kald: Laver et array af super-klassen, og objekter af de nedarvede klasser
 	 * @param gui
 	 */
 	

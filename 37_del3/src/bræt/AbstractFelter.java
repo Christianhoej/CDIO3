@@ -1,3 +1,7 @@
+/** Klassen er abstract da metoderne i klassen ikke er færdige
+ * De overrides i de nedarvede klasser
+ * "Felter" er overordnet - specificeres i de nedarvede klasser
+ */
 package bræt;
 
 import entity.Spiller; 
@@ -5,7 +9,9 @@ import gui_main.GUI;
 
 
 public abstract class  AbstractFelter {
-
+	
+	/**Protected, så de er synlige for pakken, og for nedarvede klasser
+	 */
 	protected int feltnr;
 	protected GUI gui;
 

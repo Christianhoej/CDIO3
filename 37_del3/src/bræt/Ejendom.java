@@ -1,4 +1,3 @@
-
 package bræt;
 
 import entity.Spiller;
