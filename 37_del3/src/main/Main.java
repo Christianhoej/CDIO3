@@ -7,5 +7,8 @@ public class Main {
 		
 		Spil spil = new Spil();
 		spil.Start();
+		
+	
+		
 	}
 }
